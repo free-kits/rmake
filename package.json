@@ -2,7 +2,6 @@
     "name": "@freekits/doc",
     "version": "0.0.1-canary",
     "description": "文档工具",
-    "main": "index.js",
     "scripts": {
         "test": "jest",
         "test:dev": "jest --watchAll --coverage",
@@ -26,6 +25,10 @@
         "webpack": "^5.11.0",
         "webpack-chain": "^6.5.1",
         "webpack-dev-server": "^3.11.0"
+    },
+    "peerDependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
     },
     "devDependencies": {
         "@types/jest": "^26.0.19",

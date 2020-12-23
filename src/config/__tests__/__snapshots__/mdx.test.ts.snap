@@ -109,14 +109,7 @@ Object {
   "devtool": [Function],
   "entryPoints": Object {
     "parent": [Circular],
-    "store": Map {
-      "entry" => Object {
-        "parent": [Circular],
-        "store": Set {
-          ".doc\\\\entry.tsx",
-        },
-      },
-    },
+    "store": Map {},
   },
   "externals": [Function],
   "loader": [Function],
@@ -130,7 +123,138 @@ Object {
     "parent": [Circular],
     "rules": Object {
       "parent": [Circular],
-      "store": Map {},
+      "store": Map {
+        "babel-mdx" => Object {
+          "enforce": [Function],
+          "exclude": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "include": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "issuer": [Function],
+          "name": "babel-mdx",
+          "names": Array [
+            "babel-mdx",
+          ],
+          "oneOfs": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "parent": [Circular],
+          "parser": [Function],
+          "resolve": Object {
+            "alias": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "aliasFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "cachePredicate": [Function],
+            "cacheWithContext": [Function],
+            "concord": [Function],
+            "descriptionFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "enforceExtension": [Function],
+            "enforceModuleExtension": [Function],
+            "extensions": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "modules": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "parent": [Circular],
+            "plugins": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "shorthands": Array [
+              "cachePredicate",
+              "cacheWithContext",
+              "concord",
+              "enforceExtension",
+              "enforceModuleExtension",
+              "symlinks",
+              "unsafeCache",
+            ],
+            "store": Map {},
+            "symlinks": [Function],
+            "unsafeCache": [Function],
+          },
+          "resource": [Function],
+          "resourceQuery": [Function],
+          "ruleType": "rule",
+          "ruleTypes": Array [
+            "rule",
+          ],
+          "rules": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "shorthands": Array [
+            "enforce",
+            "issuer",
+            "parser",
+            "resource",
+            "resourceQuery",
+            "sideEffects",
+            "test",
+            "type",
+          ],
+          "sideEffects": [Function],
+          "store": Map {
+            "test" => /\\\\\\.md\\(x\\?\\)\\$/,
+          },
+          "test": [Function],
+          "type": [Function],
+          "uses": Object {
+            "parent": [Circular],
+            "store": Map {
+              "babel-mdx/loader" => Object {
+                "loader": [Function],
+                "name": "babel-mdx/loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "babel-loader",
+                  "options" => Object {
+                    "presets": Array [
+                      Array [
+                        "@babel/preset-env",
+                        Object {
+                          "targets": "defaults and not ie 11 and last 2 versions",
+                        },
+                      ],
+                      "@babel/preset-react",
+                      "@babel/preset-typescript",
+                    ],
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     },
     "shorthands": Array [
       "noParse",
@@ -142,7 +266,9 @@ Object {
   "name": [Function],
   "node": Object {
     "parent": [Circular],
-    "store": Map {},
+    "store": Map {
+      "fs" => "empty",
+    },
   },
   "optimization": Object {
     "concatenateModules": [Function],
@@ -300,10 +426,7 @@ Object {
     "enforceModuleExtension": [Function],
     "extensions": Object {
       "parent": [Circular],
-      "store": Set {
-        ".tsx",
-        ".ts",
-      },
+      "store": Set {},
     },
     "mainFields": Object {
       "parent": [Circular],

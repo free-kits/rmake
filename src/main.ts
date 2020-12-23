@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { compiler, devServer } from './config/server';
 
 // 校验当前的参数是否正确
 if (process.argv.length !== 3 && (process.argv[2] === 'dev' || process.argv[2] === 'build')) {
@@ -9,7 +10,7 @@ const param = process.argv[2];
 
 // 启动项目开发
 if (param === 'dev') {
-    // TODO
+    devServer();
 } else if (param === 'build') {
-    // TODO
+    compiler();
 }
