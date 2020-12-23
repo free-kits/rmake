@@ -9,6 +9,7 @@ const param = process.argv[2];
 
 // 启动项目开发
 if (param === 'dev') {
-    //
+    // TODO
 } else if (param === 'build') {
-};
+    // TODO
+}
