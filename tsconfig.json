@@ -1,12 +1,15 @@
 {
-    "rootDir": "src", 
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "compilerOptions": {
-        "types": ["@types/node","@types/jest"],
-        "target": "es5",
-        "outDir": "bin",
-        "resolveJsonModule": true
+        "outDir": "dist",
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noResolve": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "sourceMap": true,
+        "allowJs": false
     },
-    "exclude": ["node_modules", "template", "example"]
+    "exclude": ["./node_modules/**/*", "./dist/**/*"]
 }

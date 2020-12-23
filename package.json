@@ -1,41 +1,42 @@
 {
-  "name": "@freekits/doc",
-  "version": "0.0.1-canary",
-  "description": "文档工具",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "eslint": "eslint src/** --fix"
-  },
-  "bin": {
-    "freekits-doc": "bin/main.js"
-  },
-  "files": [
-    "bin"
-  ],
-  "repository": "https://github.com/free-kits/doc.git",
-  "author": "jhoneybee <zhangjin0908@hotmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "@mdx-js/loader": "^1.6.22",
-    "babel-loader": "^8.2.2",
-    "typescript": "^4.1.3",
-    "webpack": "^5.11.0",
-    "webpack-chain": "^6.5.1",
-    "webpack-dev-server": "^3.11.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.19",
-    "@types/node": "^14.14.14",
-    "@typescript-eslint/eslint-plugin": "^4.11.0",
-    "@typescript-eslint/parser": "^4.11.0",
-    "eslint": "^7.16.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "gulp": "^4.0.0",
-    "gulp-typescript": "^6.0.0-alpha.1",
-    "jest": "^26.6.3"
-  }
+    "name": "@freekits/doc",
+    "version": "0.0.1-canary",
+    "description": "文档工具",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "eslint": "prettier --write . && eslint src/** --fix"
+    },
+    "bin": {
+        "freekits-doc": "bin/main.js"
+    },
+    "files": [
+        "bin"
+    ],
+    "repository": "https://github.com/free-kits/doc.git",
+    "author": "zhangj <zhangjin0908@hotmail.com>",
+    "license": "AGPL-3.0",
+    "dependencies": {
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@mdx-js/loader": "^1.6.22",
+        "babel-loader": "^8.2.2",
+        "typescript": "^4.1.3",
+        "webpack": "^5.11.0",
+        "webpack-chain": "^6.5.1",
+        "webpack-dev-server": "^3.11.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.19",
+        "@types/node": "^14.14.14",
+        "@typescript-eslint/eslint-plugin": "^4.11.0",
+        "@typescript-eslint/parser": "^4.11.0",
+        "eslint": "^7.16.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "gulp": "^4.0.0",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "jest": "^26.6.3",
+        "prettier": "^2.2.1"
+    }
 }
