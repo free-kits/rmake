@@ -7,8 +7,10 @@ export default (config: Config) => {
     });
 
     config.resolve.extensions
-        .add('.tsx')
+        .add('.js')
+        .add('.jsx')
         .add('.ts')
+        .add('.tsx')
         .end();
     const entryPath = join(process.cwd(), '.doc', 'entry.tsx');
     config.entry('entry').add(entryPath);

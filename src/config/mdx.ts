@@ -22,7 +22,10 @@ export default (config: Config) => {
                 '@babel/preset-typescript',
             ],
         })
-        .end()
+        .end();
+
+    config
+        .module
         .rule('babel-react')
         .test(/\.ts(x?)$/)
         .use('babel-react/loader')
@@ -35,5 +38,6 @@ export default (config: Config) => {
                 '@babel/preset-react',
                 '@babel/preset-typescript',
             ],
-        });
+        })
+        .end();
 };
