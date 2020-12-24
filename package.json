@@ -5,7 +5,8 @@
     "scripts": {
         "test": "jest",
         "test:dev": "jest --watchAll --coverage",
-        "eslint": "prettier --write . && eslint src/** --fix"
+        "eslint": "prettier --write . && eslint src/** --fix",
+        "build": "tsc"
     },
     "bin": {
         "freekits-doc": "bin/main.js"
@@ -21,6 +22,7 @@
         "@babel/preset-env": "^7.12.11",
         "@mdx-js/loader": "^1.6.22",
         "babel-loader": "^8.2.2",
+        "html-webpack-plugin": "^5.0.0-beta.1",
         "typescript": "^4.1.3",
         "webpack": "^5.11.0",
         "webpack-chain": "^6.5.1",
@@ -31,8 +33,10 @@
         "react-dom": "^17.0.1"
     },
     "devDependencies": {
+        "@tsconfig/node12": "^1.0.7",
         "@types/jest": "^26.0.19",
         "@types/node": "^14.14.14",
+        "@types/webpack-dev-server": "^3.11.1",
         "@typescript-eslint/eslint-plugin": "^4.11.0",
         "@typescript-eslint/parser": "^4.11.0",
         "eslint": "^7.16.0",

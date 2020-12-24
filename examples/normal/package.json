@@ -4,7 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "start": "freekits-doc dev"
+  },
   "devDependencies": {
-    "@freekits/doc": "link:../../"
+    "@freekits/doc": "file:../../"
   }
 }

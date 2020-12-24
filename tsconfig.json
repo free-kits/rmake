@@ -1,15 +1,10 @@
 {
+    "extends": "@tsconfig/node12/tsconfig.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "target": "es6",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "noResolve": false,
-        "noImplicitAny": false,
-        "removeComments": true,
-        "sourceMap": true,
-        "allowJs": false
+        "outDir": "bin",
+        "types": ["@types/jest"],
+        "preserveConstEnums": true
     },
-    "exclude": ["./node_modules/**/*", "./dist/**/*"]
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/*.spec.ts"]
 }

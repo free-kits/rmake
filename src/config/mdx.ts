@@ -1,6 +1,9 @@
 import Config from 'webpack-chain';
+import { getConfig } from './setting';
 
 export default (config: Config) => {
+    const docConfig = getConfig();
+    const targets = docConfig.targets || 'defaults';
     config
         .module
         .rule('babel-mdx')
@@ -13,7 +16,7 @@ export default (config: Config) => {
         .options({
             presets: [
                 ['@babel/preset-env', {
-                    targets: 'defaults and not ie 11 and last 2 versions',
+                    targets,
                 }],
                 '@babel/preset-react',
                 '@babel/preset-typescript',
@@ -27,7 +30,7 @@ export default (config: Config) => {
         .options({
             presets: [
                 ['@babel/preset-env', {
-                    targets: 'defaults and not ie 11 and last 2 versions',
+                    targets,
                 }],
                 '@babel/preset-react',
                 '@babel/preset-typescript',
