@@ -37,8 +37,7 @@ export const devServer = () => {
         https: devServerConfig?.https,
         proxy: devServerConfig?.proxy,
     });
-    webpackDevServer.listen(devServerConfig?.port || 3000, () => {
-    });
+    webpackDevServer.listen(devServerConfig?.port || 3000, () => {});
 };
 
 // 编译Webpack文件

@@ -4,8 +4,7 @@ import { getConfig } from './setting';
 export default (config: Config) => {
     const docConfig = getConfig();
     const targets = docConfig.targets || 'defaults';
-    config
-        .module
+    config.module
         .rule('babel-mdx')
         .test(/\.md(x?)$/)
         .use('babel-mdx/loader')
@@ -15,34 +14,38 @@ export default (config: Config) => {
         .loader('babel-loader')
         .options({
             presets: [
-                ['@babel/preset-env', {
-                    targets,
-                }],
+                [
+                    '@babel/preset-env',
+                    {
+                        targets,
+                    },
+                ],
                 '@babel/preset-react',
                 '@babel/preset-typescript',
             ],
         })
         .end();
 
-    config
-        .module
+    config.module
         .rule('babel-react')
         .test(/\.ts(x?)$/)
         .use('babel-react/loader')
         .loader('babel-loader')
         .options({
             presets: [
-                ['@babel/preset-env', {
-                    targets,
-                }],
+                [
+                    '@babel/preset-env',
+                    {
+                        targets,
+                    },
+                ],
                 '@babel/preset-react',
                 '@babel/preset-typescript',
             ],
         })
         .end();
 
-    config
-        .module
+    config.module
         .rule('css')
         .test(/\.css$/)
         .use('style-loader')
@@ -52,8 +55,7 @@ export default (config: Config) => {
         .loader('css-loader')
         .end();
 
-    config
-        .module
+    config.module
         .rule('less')
         .test(/\.less$/)
         .use('style-loader')

@@ -5,7 +5,8 @@
     "scripts": {
         "test": "jest",
         "test:dev": "jest --watchAll --coverage",
-        "eslint": "prettier --write . && eslint src/** --fix",
+        "eslint": "eslint src/**/* --ext '.js,.jsx,.ts,.tsx'",
+        "prettier": "prettier --write .",
         "build": "tsc"
     },
     "bin": {
@@ -57,5 +58,8 @@
         "prettier": "^2.2.1",
         "ts-jest": "^26.4.4",
         "ts-node": "^9.1.1"
+    },
+    "resolutions": {
+        "postcss": "8.1.5"
     }
 }

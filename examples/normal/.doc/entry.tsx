@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DocLayout } from './components/index'
+import { DocLayout } from './components/index';
 
-const Root = () => <DocLayout />
+const Root = () => <DocLayout />;
 
-ReactDOM.render(<Root />, document.getElementById('root'))
+ReactDOM.render(<Root />, document.getElementById('root'));
