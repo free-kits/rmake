@@ -113,7 +113,7 @@ Object {
       "entry" => Object {
         "parent": [Circular],
         "store": Set {
-          ".doc\\\\entry.tsx",
+          "D:\\\\Code\\\\doc\\\\.doc\\\\entry.tsx",
         },
       },
     },
@@ -301,8 +301,10 @@ Object {
     "extensions": Object {
       "parent": [Circular],
       "store": Set {
-        ".tsx",
+        ".js",
+        ".jsx",
         ".ts",
+        ".tsx",
       },
     },
     "mainFields": Object {
@@ -331,7 +333,11 @@ Object {
       "symlinks",
       "unsafeCache",
     ],
-    "store": Map {},
+    "store": Map {
+      "fallback" => Object {
+        "fs": false,
+      },
+    },
     "symlinks": [Function],
     "unsafeCache": [Function],
   },

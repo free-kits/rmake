@@ -242,12 +242,422 @@ Object {
                       Array [
                         "@babel/preset-env",
                         Object {
-                          "targets": "defaults and not ie 11 and last 2 versions",
+                          "targets": "defaults",
                         },
                       ],
                       "@babel/preset-react",
                       "@babel/preset-typescript",
                     ],
+                  },
+                },
+              },
+            },
+          },
+        },
+        "babel-react" => Object {
+          "enforce": [Function],
+          "exclude": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "include": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "issuer": [Function],
+          "name": "babel-react",
+          "names": Array [
+            "babel-react",
+          ],
+          "oneOfs": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "parent": [Circular],
+          "parser": [Function],
+          "resolve": Object {
+            "alias": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "aliasFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "cachePredicate": [Function],
+            "cacheWithContext": [Function],
+            "concord": [Function],
+            "descriptionFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "enforceExtension": [Function],
+            "enforceModuleExtension": [Function],
+            "extensions": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "modules": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "parent": [Circular],
+            "plugins": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "shorthands": Array [
+              "cachePredicate",
+              "cacheWithContext",
+              "concord",
+              "enforceExtension",
+              "enforceModuleExtension",
+              "symlinks",
+              "unsafeCache",
+            ],
+            "store": Map {},
+            "symlinks": [Function],
+            "unsafeCache": [Function],
+          },
+          "resource": [Function],
+          "resourceQuery": [Function],
+          "ruleType": "rule",
+          "ruleTypes": Array [
+            "rule",
+          ],
+          "rules": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "shorthands": Array [
+            "enforce",
+            "issuer",
+            "parser",
+            "resource",
+            "resourceQuery",
+            "sideEffects",
+            "test",
+            "type",
+          ],
+          "sideEffects": [Function],
+          "store": Map {
+            "test" => /\\\\\\.ts\\(x\\?\\)\\$/,
+          },
+          "test": [Function],
+          "type": [Function],
+          "uses": Object {
+            "parent": [Circular],
+            "store": Map {
+              "babel-react/loader" => Object {
+                "loader": [Function],
+                "name": "babel-react/loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "babel-loader",
+                  "options" => Object {
+                    "presets": Array [
+                      Array [
+                        "@babel/preset-env",
+                        Object {
+                          "targets": "defaults",
+                        },
+                      ],
+                      "@babel/preset-react",
+                      "@babel/preset-typescript",
+                    ],
+                  },
+                },
+              },
+            },
+          },
+        },
+        "css" => Object {
+          "enforce": [Function],
+          "exclude": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "include": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "issuer": [Function],
+          "name": "css",
+          "names": Array [
+            "css",
+          ],
+          "oneOfs": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "parent": [Circular],
+          "parser": [Function],
+          "resolve": Object {
+            "alias": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "aliasFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "cachePredicate": [Function],
+            "cacheWithContext": [Function],
+            "concord": [Function],
+            "descriptionFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "enforceExtension": [Function],
+            "enforceModuleExtension": [Function],
+            "extensions": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "modules": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "parent": [Circular],
+            "plugins": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "shorthands": Array [
+              "cachePredicate",
+              "cacheWithContext",
+              "concord",
+              "enforceExtension",
+              "enforceModuleExtension",
+              "symlinks",
+              "unsafeCache",
+            ],
+            "store": Map {},
+            "symlinks": [Function],
+            "unsafeCache": [Function],
+          },
+          "resource": [Function],
+          "resourceQuery": [Function],
+          "ruleType": "rule",
+          "ruleTypes": Array [
+            "rule",
+          ],
+          "rules": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "shorthands": Array [
+            "enforce",
+            "issuer",
+            "parser",
+            "resource",
+            "resourceQuery",
+            "sideEffects",
+            "test",
+            "type",
+          ],
+          "sideEffects": [Function],
+          "store": Map {
+            "test" => /\\\\\\.css\\$/,
+          },
+          "test": [Function],
+          "type": [Function],
+          "uses": Object {
+            "parent": [Circular],
+            "store": Map {
+              "style-loader" => Object {
+                "loader": [Function],
+                "name": "style-loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "style-loader",
+                },
+              },
+              "css/loader" => Object {
+                "loader": [Function],
+                "name": "css/loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "css-loader",
+                },
+              },
+            },
+          },
+        },
+        "less" => Object {
+          "enforce": [Function],
+          "exclude": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "include": Object {
+            "parent": [Circular],
+            "store": Set {},
+          },
+          "issuer": [Function],
+          "name": "less",
+          "names": Array [
+            "less",
+          ],
+          "oneOfs": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "parent": [Circular],
+          "parser": [Function],
+          "resolve": Object {
+            "alias": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "aliasFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "cachePredicate": [Function],
+            "cacheWithContext": [Function],
+            "concord": [Function],
+            "descriptionFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "enforceExtension": [Function],
+            "enforceModuleExtension": [Function],
+            "extensions": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFields": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "mainFiles": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "modules": Object {
+              "parent": [Circular],
+              "store": Set {},
+            },
+            "parent": [Circular],
+            "plugins": Object {
+              "parent": [Circular],
+              "store": Map {},
+            },
+            "shorthands": Array [
+              "cachePredicate",
+              "cacheWithContext",
+              "concord",
+              "enforceExtension",
+              "enforceModuleExtension",
+              "symlinks",
+              "unsafeCache",
+            ],
+            "store": Map {},
+            "symlinks": [Function],
+            "unsafeCache": [Function],
+          },
+          "resource": [Function],
+          "resourceQuery": [Function],
+          "ruleType": "rule",
+          "ruleTypes": Array [
+            "rule",
+          ],
+          "rules": Object {
+            "parent": [Circular],
+            "store": Map {},
+          },
+          "shorthands": Array [
+            "enforce",
+            "issuer",
+            "parser",
+            "resource",
+            "resourceQuery",
+            "sideEffects",
+            "test",
+            "type",
+          ],
+          "sideEffects": [Function],
+          "store": Map {
+            "test" => /\\\\\\.less\\$/,
+          },
+          "test": [Function],
+          "type": [Function],
+          "uses": Object {
+            "parent": [Circular],
+            "store": Map {
+              "style-loader" => Object {
+                "loader": [Function],
+                "name": "style-loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "style-loader",
+                },
+              },
+              "css/loader" => Object {
+                "loader": [Function],
+                "name": "css/loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "css-loader",
+                },
+              },
+              "less/loader" => Object {
+                "loader": [Function],
+                "name": "less/loader",
+                "options": [Function],
+                "parent": [Circular],
+                "shorthands": Array [
+                  "loader",
+                  "options",
+                ],
+                "store": Map {
+                  "loader" => "less-loader",
+                  "options" => Object {
+                    "lessOptions": Object {
+                      "javascriptEnabled": true,
+                    },
                   },
                 },
               },
@@ -266,9 +676,7 @@ Object {
   "name": [Function],
   "node": Object {
     "parent": [Circular],
-    "store": Map {
-      "fs" => "empty",
-    },
+    "store": Map {},
   },
   "optimization": Object {
     "concatenateModules": [Function],
