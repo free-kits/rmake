@@ -1,5 +1,7 @@
 # React 的文档工具
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4cae52220c4433a8d8b813cf50433ad)](https://app.codacy.com/gh/free-kits/doc?utm_source=github.com&utm_medium=referral&utm_content=free-kits/doc&utm_campaign=Badge_Grade)
+
 ## 介绍
 
 基于 Webpack 的文档工具可以帮助开发 React 库以及编写组件文档。
