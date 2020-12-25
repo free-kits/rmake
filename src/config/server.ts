@@ -1,6 +1,6 @@
 import Config from 'webpack-chain';
 import { join } from 'path';
-import { copyFileSync, existsSync, mkdirSync } from 'fs';
+import { copySync, existsSync, removeSync } from 'fs-extra';
 import WebpackDevServer from 'webpack-dev-server';
 import Webpack from 'webpack';
 import { getConfig } from './setting';
@@ -11,14 +11,12 @@ import presetPlugin from './plugin';
 
 const copyFileDoc = () => {
     const toPathDir = join(process.cwd(), '.doc');
-
-    if (!existsSync(toPathDir)) {
-        mkdirSync(toPathDir);
+    if (existsSync(toPathDir)) {
+        removeSync(toPathDir);
     }
-
-    copyFileSync(
-        join(__dirname, '..', '..', 'template', 'webpack', '.doc', 'entry.tsx'),
-        join(toPathDir, 'entry.tsx'),
+    copySync(
+        join(__dirname, '..', '..', 'template', 'webpack', '.doc'),
+        toPathDir,
     );
 };
 
@@ -30,6 +28,8 @@ export const devServer = () => {
     presetEntry(config);
     presetMDX(config);
     presetPlugin(config);
+    config.mode('development');
+    config.devtool('cheap-module-source-map');
     const compiler = Webpack(config.toConfig());
     const { devServer: devServerConfig } = docConfig;
     const webpackDevServer = new WebpackDevServer(compiler, {

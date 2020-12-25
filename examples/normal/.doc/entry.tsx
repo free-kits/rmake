@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { DocLayout } from './components/index'
 
-const Root = () => {
-    return <> 你好 </>
-}
+const Root = () => <DocLayout />
 
-ReactDOM.render(document.querySelector('body'), <Root />)
+ReactDOM.render(<Root />, document.getElementById('root'))

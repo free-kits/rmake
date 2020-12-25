@@ -40,4 +40,34 @@ export default (config: Config) => {
             ],
         })
         .end();
+
+    config
+        .module
+        .rule('css')
+        .test(/\.css$/)
+        .use('style-loader')
+        .loader('style-loader')
+        .end()
+        .use('css/loader')
+        .loader('css-loader')
+        .end();
+
+    config
+        .module
+        .rule('less')
+        .test(/\.less$/)
+        .use('style-loader')
+        .loader('style-loader')
+        .end()
+        .use('css/loader')
+        .loader('css-loader')
+        .end()
+        .use('less/loader')
+        .loader('less-loader')
+        .options({
+            lessOptions: {
+                javascriptEnabled: true,
+            },
+        })
+        .end();
 };
