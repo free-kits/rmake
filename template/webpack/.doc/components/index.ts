@@ -1,1 +1,1 @@
-export { DocLayout } from './layout/doc-layout'
+export { DocLayout } from './layout/doc-layout';

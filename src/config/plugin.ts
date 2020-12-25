@@ -2,8 +2,9 @@ import Config from 'webpack-chain';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default (config: Config) => {
-    config.plugin('html-webpack-plugin').use(new HtmlWebpackPlugin({
-        templateContent: `<!DOCTYPE html>
+    config.plugin('html-webpack-plugin').use(
+        new HtmlWebpackPlugin({
+            templateContent: `<!DOCTYPE html>
 <html>
     <head>
     <meta charset="UTF-8" />
@@ -23,5 +24,6 @@ export default (config: Config) => {
     <div id="root"></div>
     </body>
 </html>`,
-    }));
+        }),
+    );
 };

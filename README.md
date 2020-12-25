@@ -2,14 +2,13 @@
 
 ## 介绍
 
-基于Webpack的文档工具可以帮助开发React库以及编写组件文档。
+基于 Webpack 的文档工具可以帮助开发 React 库以及编写组件文档。
 
 特征
 
-- 🌈 开箱即用，专注于React组件库以及文档开发
-- ✍ 强大的Markdown扩展，支持流程图和公式，以及代码演示，不依赖外部环境。
-- 🐱‍🏍 高性能, 基于Webpack 5 构建
-
+-   🌈 开箱即用，专注于 React 组件库以及文档开发
+-   ✍ 强大的 Markdown 扩展，支持流程图和公式，以及代码演示，不依赖外部环境。
+-   🐱‍🏍 高性能, 基于 Webpack 5 构建
 
 ## 使用手册说明
 
@@ -24,27 +23,25 @@
 ```md
 ---
 nav:
-  title: 组件
-  path: /components
+    title: 组件
+    path: /components
 group:
-  path: /components/base
-  title: 基础组件
+    path: /components/base
+    title: 基础组件
 title: Button 按钮
 ---
 
-# 这是一个测试的md文件
+# 这是一个测试的 md 文件
 
 这是一些少许的文件信息
 ```
 
 这里是常用的一些属性说明
 
-- nav 表示生成导航条上的按钮信息
-    - title 表示标题
-    - path  表示路由信息，也就是点击这个按钮跳转到对应的路由地址
-- group 表示当前左侧的菜单信息
-    - path  当前分组的菜单信息
-    - title 表示当前分组的名称
-- title 表示当前在右侧显示的菜单信息
-
-
+-   nav 表示生成导航条上的按钮信息
+    -   title 表示标题
+    -   path 表示路由信息，也就是点击这个按钮跳转到对应的路由地址
+-   group 表示当前左侧的菜单信息
+    -   path 当前分组的菜单信息
+    -   title 表示当前分组的名称
+-   title 表示当前在右侧显示的菜单信息

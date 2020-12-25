@@ -1,5 +1,5 @@
 import React from 'react';
-import { prefixCls } from '../_util/common'
+import { prefixCls } from '../_util/common';
 import './style/doc-layout.less';
 
 export const DocLayout = () => {
@@ -17,5 +17,5 @@ export const DocLayout = () => {
                 <div className={`${prefixCls}-body-content`}></div>
             </div>
         </>
-    )
-}
+    );
+};
