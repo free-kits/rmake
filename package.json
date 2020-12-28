@@ -3,7 +3,7 @@
     "version": "0.0.1-canary",
     "description": "文档工具",
     "scripts": {
-        "start": "yarn build && cd examples/normal && npm run start",
+        "start": "yarn build && cd examples/normal && npm install && npm run start",
         "test": "jest",
         "test:dev": "jest --watchAll --coverage",
         "eslint": "eslint src/**/* --ext '.js,.jsx,.ts,.tsx'",
