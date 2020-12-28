@@ -1,21 +1,55 @@
 import React from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
+
 import { prefixCls } from '../_util/common';
+import getRouteConfig from '../../config';
 import './style/doc-layout.less';
 
-export const DocLayout = () => {
+export interface Menu {
+    // 菜单信息
+    title: string
+    // 路由信息
+    route: string
+}
+
+export interface DocLayoutProps {
+    menus: Menu[]
+}
+
+export const DocLayout = ({
+    menus
+}: DocLayoutProps) => {
     return (
-        <div className={`${prefixCls}-layout`}>
-            <header className={`${prefixCls}-header`}></header>
-            <div className={`${prefixCls}-body`}>
-                <div className={`${prefixCls}-body-sider`}>
-                    <ul>
-                        <li>咖啡</li>
-                        <li>茶222</li>
-                        <li>牛奶</li>
-                    </ul>
+        <Router>
+            <div className={`${prefixCls}-layout`}>
+                <header className={`${prefixCls}-header`}></header>
+                <div className={`${prefixCls}-body`}>
+                    <div className={`${prefixCls}-body-sider`}>
+                        <ul>
+                            {menus?.map(menu => (
+                                <li
+                                    onClick={() => {
+                                    }}
+                                >
+                                    {menu.title}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className={`${prefixCls}-body-content`}>
+                        <Switch>
+                            {getRouteConfig()}
+                            <Route path="*">
+                                未找到数据
+                            </Route>
+                        </Switch>
+                    </div>
                 </div>
-                <div className={`${prefixCls}-body-content`}></div>
             </div>
-        </div>
+        </Router>
     );
 };
