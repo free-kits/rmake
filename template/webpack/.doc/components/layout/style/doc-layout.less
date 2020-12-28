@@ -2,19 +2,42 @@
 
 @prefix-cls-body: ~'@{prefix-cls}-body';
 @prefix-cls-header: ~'@{prefix-cls}-header';
+@prefix-cls-layout: ~'@{prefix-cls}-layout';
+
+.@{prefix-cls-layout} {
+    --header-height: 3em;
+    height: 100%;
+}
 
 .@{prefix-cls-header} {
-    height: 4em;
+    height: var(--header-height);
     background-color: #212121;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .@{prefix-cls-body} {
     display: flex;
+    height: calc(100% - var(--header-height));
 }
 
 .@{prefix-cls-body}-sider {
-    width: 320px;
+    width: 250px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    > ul {
+        margin-top: 2em;
+        padding-inline-start: 0px;
+        list-style: none;
+        > li {
+            display: flex;
+            cursor: pointer;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-inline-start: 2em;
+            &:hover {
+                background-color: #eee;
+            }
+        }
+    }
 }
 
 .@{prefix-cls-body}-content {

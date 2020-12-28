@@ -1,4 +1,8 @@
 #!/usr/bin/env node
+
+import chokidar from 'chokidar';
+import { join } from 'path';
+import { copySync } from 'fs-extra';
 import { compiler, devServer } from './config/server';
 
 // 校验当前的参数是否正确
@@ -12,6 +16,16 @@ if (
 }
 
 const param = process.argv[2];
+
+chokidar.watch(join(__dirname, '..', 'template', 'webpack', '.doc')).on('all', (eventName) => {
+    const toPathDir = join(process.cwd(), '.doc');
+    if (eventName === 'change') {
+        copySync(
+            join(__dirname, '..', 'template', 'webpack', '.doc'),
+            toPathDir,
+        );
+    }
+});
 
 // 启动项目开发
 if (param === 'dev') {
