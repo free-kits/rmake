@@ -3,6 +3,7 @@
     "version": "0.0.1-canary",
     "description": "文档工具",
     "scripts": {
+        "start": "yarn build && cd examples/normal && npm run start",
         "test": "jest",
         "test:dev": "jest --watchAll --coverage",
         "eslint": "eslint src/**/* --ext '.js,.jsx,.ts,.tsx'",
@@ -24,6 +25,7 @@
         "@babel/preset-react": "^7.12.10",
         "@babel/preset-typescript": "^7.12.7",
         "@mdx-js/loader": "^1.6.22",
+        "chokidar": "^3.4.3",
         "babel-loader": "^8.2.2",
         "css-loader": "^5.0.1",
         "fs-extra": "^9.0.1",
