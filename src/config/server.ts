@@ -8,6 +8,7 @@ import { getConfig } from './setting';
 import presetEntry from './entry';
 import presetMDX from './mdx';
 import presetPlugin from './plugin';
+import { createRouteConfig } from './router';
 
 const copyFileDoc = () => {
     const toPathDir = join(process.cwd(), '.doc');
@@ -18,6 +19,7 @@ const copyFileDoc = () => {
         join(__dirname, '..', '..', 'template', 'webpack', '.doc'),
         toPathDir,
     );
+    createRouteConfig();
 };
 
 // 启动开发服务器
