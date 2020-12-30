@@ -1,5 +1,4 @@
 import Config, { Use } from 'webpack-chain';
-import { readdirSync } from 'fs-extra';
 import { getConfig } from './setting';
 
 const presetBabel = (use: Use, targets: string) => {
@@ -17,13 +16,6 @@ const presetBabel = (use: Use, targets: string) => {
             ],
         })
         .end();
-};
-
-// 查找对应的md的文件, 然后根据文件来生成对应的目录结构信息
-export const findFile = () => {
-    const dir = readdirSync(process.cwd());
-    const mdFiles = dir.filter((file) => file.match(/\.md(x?)$/));
-    return mdFiles;
 };
 
 export default (config: Config) => {
