@@ -44,7 +44,7 @@ export const DocLayout = ({
                         <Switch>
                             {getRouteConfig()}
                             <Route path="*">
-                                未找到数据
+                                {/** 404 页面 */}
                             </Route>
                         </Switch>
                     </div>
