@@ -11,6 +11,8 @@ export default (config: Config) => {
         .add('.jsx')
         .add('.ts')
         .add('.tsx')
+        .add('.md')
+        .add('.mdx')
         .end();
     const entryPath = join(process.cwd(), '.doc', 'entry.tsx');
     config.entry('entry').add(entryPath);
