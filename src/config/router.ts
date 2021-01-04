@@ -62,7 +62,7 @@ export const findFileToNavs = () => {
     logger.debug('find md files.', files);
     const navs: Nav[] = [];
     files.forEach((file) => {
-        const mdInfo = /==+[\w\W]+?==+/i.exec(readFileSync(file, 'utf8'));
+        const mdInfo = /^<!--+[\W\w]+?--+>/i.exec(readFileSync(file, 'utf8'));
         logger.debug('get markdown params', mdInfo);
         if (mdInfo?.length && mdInfo?.length > 0) {
             /**
@@ -73,7 +73,7 @@ export const findFileToNavs = () => {
              *  title: 基础组件
              * title: Button 按钮`;
              */
-            const yml: any = yaml.safeLoad(mdInfo[0].replace(/==+/g, ''));
+            const yml: any = yaml.safeLoad(mdInfo[0].replace(/<!--+/g, '').replace(/--+>/g, ''));
             const filterNav = navs.filter((ele) => ele.title === yml.nav.title);
             // 不存在对应的nav信息，则添加
             const groupInfo = {
