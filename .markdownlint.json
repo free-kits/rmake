@@ -1,5 +1,5 @@
 {
     "markdownlint.config": {
-        "MD007": { "indent": 1 }
+        "MD030": { "list-space": 1 }
     }
 }

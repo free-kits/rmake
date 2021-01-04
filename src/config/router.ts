@@ -24,7 +24,7 @@ interface Nav {
     // 标题
     title: string
     // 分组信息
-    groups: Group[]
+    group: Group[]
 }
 
 // 递归获取文件目录
@@ -81,16 +81,17 @@ export const findFileToNavs = () => {
                 path: yml.group.path as string,
                 pages: [{
                     title: yml.title as string,
-                    path: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
+                    component: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
+                    path: `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`,
                 }],
             };
             if (navs.filter((ele) => ele.title === yml.nav.title).length === 0) {
                 navs.push({
                     title: yml.nav.title as string,
-                    groups: [groupInfo],
+                    group: [groupInfo],
                 });
             } else {
-                const groupFilter = filterNav[0].groups.filter((group) => group.title === yml.group.title);
+                const groupFilter = filterNav[0].group.filter((group) => group.title === yml.group.title);
                 if (groupFilter.length === 0) {
                     groupFilter.push(groupInfo);
                 } else {
@@ -105,7 +106,7 @@ export const findFileToNavs = () => {
 // 生成对应的文件信息
 export const createRouteConfig = () => {
     const navs = findFileToNavs();
-    logger.debug('create route config ->', navs);
+    logger.debug('create route config ->', JSON.stringify(navs));
     const code = JSON.stringify(navs).replace(/"/g, '\'')
         .replace(/'\/\*@freekits\/doc\s+import\*\//g, 'React.lazy(() => import(\'')
         .replace(/\/\*@freekits\/doc\s+import-end\*\/'/g, '\'))')
