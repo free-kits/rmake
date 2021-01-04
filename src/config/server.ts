@@ -10,7 +10,7 @@ import presetMDX from './mdx';
 import presetPlugin from './plugin';
 import { createRouteConfig } from './router';
 
-const copyFileDoc = () => {
+export const copyFileDoc = () => {
     const toPathDir = join(process.cwd(), '.doc');
     if (existsSync(toPathDir)) {
         removeSync(toPathDir);
@@ -32,12 +32,14 @@ export const devServer = () => {
     presetPlugin(config);
     config.mode('development');
     config.devtool('cheap-module-source-map');
+    config.output.publicPath('/');
     const compiler = Webpack(config.toConfig());
     const { devServer: devServerConfig } = docConfig;
     const webpackDevServer = new WebpackDevServer(compiler, {
         stats: 'errors-only',
         https: devServerConfig?.https,
         proxy: devServerConfig?.proxy,
+        historyApiFallback: true,
     });
     webpackDevServer.listen(devServerConfig?.port || 3000, () => {});
 };

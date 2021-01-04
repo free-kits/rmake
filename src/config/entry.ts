@@ -14,4 +14,8 @@ export default (config: Config) => {
         .end();
     const entryPath = join(process.cwd(), '.doc', 'entry.tsx');
     config.entry('entry').add(entryPath);
+    // see https://github.com/facebook/react/issues/2402
+    // see https://github.com/facebook/react/issues/13991#issuecomment-435587809
+    config.resolve.alias.set('react', join(process.cwd(), 'node_modules', 'react')).end();
+    config.resolve.alias.set('react-dom', join(process.cwd(), 'node_modules', 'react-dom')).end();
 };
