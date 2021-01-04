@@ -20,6 +20,8 @@ export interface DocLayoutProps {
     menus: Menu[]
 }
 
+const LoadingFallback = () => <div>Loading...</div>
+
 export const DocLayout = ({
     menus
 }: DocLayoutProps) => {
@@ -42,10 +44,12 @@ export const DocLayout = ({
                     </div>
                     <div className={`${prefixCls}-body-content`}>
                         <Switch>
-                            {getRouteConfig()}
-                            <Route path="*">
-                                {/** 404 页面 */}
-                            </Route>
+                            <React.Suspense fallback={<LoadingFallback />}>
+                                    {getRouteConfig()}
+                                    <Route path="*">
+                                        {/** 404 页面 */}
+                                    </Route>
+                            </React.Suspense>
                         </Switch>
                     </div>
                 </div>
