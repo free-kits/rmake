@@ -1,8 +1,16 @@
-import Config, { Use } from 'webpack-chain';
+import Config from 'webpack-chain';
+import logger from './logger';
 import { getConfig } from './setting';
 
-const presetBabel = (use: Use, targets: string) => {
-    use.loader('babel-loader')
+export default (config: Config) => {
+    const docConfig = getConfig();
+    const targets = docConfig.targets || 'defaults';
+
+    config.module
+        .rule('tsReact')
+        .test(/\.ts(x?)$/)
+        .use('babel-react/loader')
+        .loader('babel-loader')
         .options({
             presets: [
                 [
@@ -14,27 +22,7 @@ const presetBabel = (use: Use, targets: string) => {
                 '@babel/preset-react',
                 '@babel/preset-typescript',
             ],
-        })
-        .end();
-};
-
-export default (config: Config) => {
-    const docConfig = getConfig();
-    const targets = docConfig.targets || 'defaults';
-
-    presetBabel(config.module
-        .rule('babel-mdx')
-        .test(/\.md(x?)$/)
-        .use('babel-mdx/loader')
-        .loader('@mdx-js/loader')
-        .end()
-        .use('babel-mdx/loader'), targets);
-
-    presetBabel(config.module
-        .rule('babel-react')
-        .test(/\.ts(x?)$/)
-        .use('babel-react/loader')
-        .loader('babel-loader'), targets);
+        });
 
     config.module
         .rule('css')
@@ -43,8 +31,7 @@ export default (config: Config) => {
         .loader('style-loader')
         .end()
         .use('css/loader')
-        .loader('css-loader')
-        .end();
+        .loader('css-loader');
 
     config.module
         .rule('less')
@@ -61,6 +48,18 @@ export default (config: Config) => {
             lessOptions: {
                 javascriptEnabled: true,
             },
+        });
+
+    config.module
+        .rule('mdx')
+        .test(/\.md(x?)$/)
+        .use('babel/loader')
+        .loader('babel-loader')
+        .options({
+            presets: ['@babel/preset-react'],
         })
-        .end();
+        .end()
+        .use('babel-mdx/loader')
+        .loader('@mdx-js/loader');
+    logger.debug(JSON.stringify(config.toConfig()));
 };

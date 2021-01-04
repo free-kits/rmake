@@ -3,7 +3,7 @@ import Config from 'webpack-chain';
 
 export default (config: Config) => {
     config.resolve.set('fallback', {
-        fs: false,
+        fs: 'empty',
     });
 
     config.resolve.extensions
@@ -11,8 +11,6 @@ export default (config: Config) => {
         .add('.jsx')
         .add('.ts')
         .add('.tsx')
-        .add('.md')
-        .add('.mdx')
         .end();
     const entryPath = join(process.cwd(), '.doc', 'entry.tsx');
     config.entry('entry').add(entryPath);
