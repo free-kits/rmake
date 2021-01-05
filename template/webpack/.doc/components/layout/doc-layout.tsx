@@ -19,30 +19,31 @@ export interface DocLayoutProps {
 
 const LoadingFallback = () => <div>Loading...</div>;
 
-export const DocLayout = ({ menus }: DocLayoutProps) => {
-    /***
-     * 将配置信息转换成为路由信息
-     */
-    const transformToRouter = () => {
-        const configs = getRouteConfig();
-        const routers = [];
-        configs.forEach((ele) => {
-            const groups = ele.group || [];
-            groups.forEach((group) => {
-                group.pages.forEach((page) => {
-                    const RouteComponent = page.component;
-                    routers.push(
-                        <Route
-                            path={page.path}
-                            key={generate()}
-                            render={(props) => <RouteComponent {...props}/> }
-                        />,
-                    );
-                });
+/***
+ * 将配置信息转换成为路由信息
+ */
+const transformToRouter = () => {
+    const configs = getRouteConfig();
+    const routers = [];
+    configs.forEach((ele) => {
+        const groups = ele.group || [];
+        groups.forEach((group) => {
+            group.pages.forEach((page) => {
+                const RouteComponent = page.component;
+                routers.push(
+                    <Route
+                        path={page.path}
+                        key={generate()}
+                        render={(props) => <RouteComponent {...props}/> }
+                    />,
+                );
             });
         });
-        return routers;
-    };
+    });
+    return routers;
+};
+
+export const DocLayout = ({ menus }: DocLayoutProps) => {
     return (
         <Router>
             <div className={`${prefixCls}-layout`}>
