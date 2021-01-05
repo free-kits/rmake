@@ -9,7 +9,6 @@
         "eslint": "eslint src/**/* --ext '.js,.jsx,.ts,.tsx'",
         "mdlint": "markdownlint **/*.md",
         "prettier": "prettier --write .",
-        "codecov": "codecov .",
         "build": "tsc"
     },
     "bin": {
@@ -60,7 +59,6 @@
         "@types/webpack-dev-server": "^3.11.1",
         "@typescript-eslint/eslint-plugin": "^4.11.1",
         "@typescript-eslint/parser": "^4.11.0",
-        "codecov": "^3.8.1",
         "eslint": "^7.17.0",
         "eslint-config-airbnb-base": "^14.2.1",
         "eslint-plugin-import": "^2.22.1",
