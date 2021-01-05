@@ -26,6 +26,3 @@ jobs:
             - run: yarn
             - run: yarn build
             - run: yarn test
-            - run: yarn global add codecov
-            - run: codecov -f coverage/*.json
-            - run: bash <(curl -s https://codecov.io/bash)
