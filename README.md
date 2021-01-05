@@ -1,6 +1,6 @@
 # @free-kits/doc
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4cae52220c4433a8d8b813cf50433ad)](https://app.codacy.com/gh/free-kits/doc?utm_source=github.com&utm_medium=referral&utm_content=free-kits/doc&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4cae52220c4433a8d8b813cf50433ad)](https://app.codacy.com/gh/free-kits/doc?utm_source=github.com&utm_medium=referral&utm_content=free-kits/doc&utm_campaign=Badge_Grade)[![codecov](https://codecov.io/gh/free-kits/doc/branch/canary/graph/badge.svg?token=ZX8NIV3186)](https://codecov.io/gh/free-kits/doc)
 
 ## 介绍
 
