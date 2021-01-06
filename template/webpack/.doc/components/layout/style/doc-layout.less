@@ -27,11 +27,16 @@
         margin-top: 2em;
         padding-inline-start: 0px;
         list-style: none;
+        > div {
+            padding-inline-start: 1em;
+            padding-bottom: 0.3em;
+            cursor: default;
+        }
         > li {
             display: flex;
             cursor: pointer;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 0.4em;
+            padding-bottom: 0.4em;
             padding-inline-start: 2em;
             &:hover {
                 background-color: #eee;
@@ -42,4 +47,6 @@
 
 .@{prefix-cls-body}-content {
     flex: auto;
+    margin-left: 2em;
+    margin-right: 2em;
 }
