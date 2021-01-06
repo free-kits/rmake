@@ -1,5 +1,5 @@
 {
-    "name": "@freekits/doc",
+    "name": "@freekits/dt-doc",
     "version": "0.0.1-canary",
     "description": "文档工具",
     "scripts": {
