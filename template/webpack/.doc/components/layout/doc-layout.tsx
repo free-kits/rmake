@@ -43,6 +43,18 @@ const transformToRouter = () => {
     return routers;
 };
 
+const transformToSider = () => {
+    const configs = getRouteConfig();
+    const menus = [];
+    configs.forEach((ele) => {
+        const groups = ele.group || [];
+        groups.forEach((group) => {
+
+        });
+    });
+    return []
+}
+
 export const DocLayout = ({ menus }: DocLayoutProps) => {
     return (
         <Router>

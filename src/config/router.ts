@@ -7,24 +7,28 @@ import { join } from 'path';
 import logger from './logger';
 
 interface Page {
-    // 标题信息
+    // 标题
     title: string
-    // 路径信息
+    // 序号
+    order: number
+    // 当前组件信息
+    component: string
+    // 组件访问路径
     path: string
 }
 
-interface Group {
-    // 标题
+interface MenuGroup {
     title: string
-    // 当前的页面信息
     pages: Page[]
 }
 
 interface Nav {
     // 标题
     title: string
-    // 分组信息
-    group: Group[]
+    // 序号
+    order: number
+    // 当前节点下的菜单信息
+    menus: (MenuGroup | Page)[]
 }
 
 // 递归获取文件目录
@@ -60,43 +64,70 @@ export const findFile = () => {
 export const findFileToNavs = () => {
     const files = findFile();
     logger.debug('find md files.', files);
+    const defaultOrder = 999;
     const navs: Nav[] = [];
     files.forEach((file) => {
         const mdInfo = /^<!--+[\W\w]+?--+>/i.exec(readFileSync(file, 'utf8'));
         logger.debug('get markdown params', mdInfo);
         if (mdInfo?.length && mdInfo?.length > 0) {
-            /**
-             * 数据格式如下
-             * nav:
-             *  title: 组件
-             * group:
-             *  title: 基础组件
-             * title: Button 按钮`;
-             */
-            const yml: any = yaml.safeLoad(mdInfo[0].replace(/<!--+/g, '').replace(/--+>/g, ''));
-            const filterNav = navs.filter((ele) => ele.title === yml.nav.title);
-            // 不存在对应的nav信息，则添加
-            const groupInfo = {
-                title: yml.group.title as string,
-                path: yml.group.path as string,
-                pages: [{
-                    title: yml.title as string,
-                    component: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
-                    path: `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`,
-                }],
+            const yml = yaml.safeLoad(mdInfo[0].replace(/<!--+/g, '').replace(/--+>/g, '')) as {
+                nav: {
+                    title: string,
+                    order?: number
+                },
+                group: {
+                    title: string,
+                    order?: number
+                },
+                title: string,
+                order?: number
             };
-            if (navs.filter((ele) => ele.title === yml.nav.title).length === 0) {
-                navs.push({
-                    title: yml.nav.title as string,
-                    group: [groupInfo],
-                });
-            } else {
-                const groupFilter = filterNav[0].group.filter((group) => group.title === yml.group.title);
-                if (groupFilter.length === 0) {
-                    groupFilter.push(groupInfo);
-                } else {
-                    groupFilter[0].pages.push(groupInfo.pages[0]);
+            const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
+
+            const page: Page = {
+                title: yml.title,
+                order: defaultOrder,
+                component: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
+                path: `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`,
+            };
+
+            if (filterNavs.length > 0) {
+                // 如果数据结构中存在对应的nav信息，则直接添加
+                const nav = filterNavs[0];
+                const instanceOfMenuGroup = (object: any): object is MenuGroup => 'pages' in object;
+                const menusFilter = nav.menus.filter((menu) => menu.title === yml.group.title && instanceOfMenuGroup(menu));
+
+                if (yml.group && menusFilter.length > 0) {
+                    if (instanceOfMenuGroup(menusFilter[0]) && menusFilter[0].pages) {
+                        // 如果存在group, 则添加到对应group的pages
+                        menusFilter[0].pages.push(page);
+                    } else {
+                        // 否则没有group存在, 手动新建一个group
+                        nav.menus.push({
+                            title: yml.group.title,
+                            pages: [page],
+                        });
+                    }
                 }
+            } else {
+                // 不存在对应的nav信息，则添加
+                const addNav: Nav = {
+                    title: yml.nav.title,
+                    order: yml.nav.order || defaultOrder,
+                    menus: [],
+                };
+
+                if (yml.group) {
+                    addNav.menus.push({
+                        title: yml.group.title,
+                        order: yml.group.order || defaultOrder,
+                        pages: [page],
+                    });
+                } else {
+                    addNav.menus.push(page);
+                }
+
+                navs.push(addNav);
             }
         }
     });
