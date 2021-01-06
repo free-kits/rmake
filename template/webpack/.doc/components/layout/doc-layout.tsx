@@ -85,12 +85,12 @@ const Sider = () => {
     const menuDom = [];
     currentNav?.menus?.forEach((menu) => {
         if (menu.pages) {
-            menuDom.push(<div>{menu.title}</div>);
+            menuDom.push(<div key={generate()}>{menu.title}</div>);
             menu.pages.forEach((page) => {
-                menuDom.push(<li onClick={() => {}}>{page.title}</li>);
+                menuDom.push(<li key={generate()}>{page.title}</li>);
             });
         } else {
-            menuDom.push(<li onClick={() => {}}>{menu.title}</li>);
+            menuDom.push(<li key={generate()}>{menu.title}</li>);
         }
     });
     return <>{menuDom}</>;
