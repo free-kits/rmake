@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    useLocation,
+} from 'react-router-dom';
 import { generate } from 'shortid';
 
 import { prefixCls } from '../_util/common';
@@ -13,10 +18,6 @@ export interface Menu {
     route: string;
 }
 
-export interface DocLayoutProps {
-    menus: Menu[];
-}
-
 const LoadingFallback = () => <div>Loading...</div>;
 
 /***
@@ -26,36 +27,76 @@ const transformToRouter = () => {
     const configs = getRouteConfig();
     const routers = [];
     configs.forEach((ele) => {
-        const groups = ele.group || [];
-        groups.forEach((group) => {
-            group.pages.forEach((page) => {
-                const RouteComponent = page.component;
+        const menus = ele.menus || [];
+        menus.forEach((menu) => {
+            if (menu.pages) {
+                menu.pages.forEach((page) => {
+                    const RouteComponent = page.component;
+                    routers.push(
+                        <Route
+                            path={page.path}
+                            key={generate()}
+                            render={(props) => <RouteComponent {...props} />}
+                        />,
+                    );
+                });
+            } else {
+                const RouteComponent = menu.component;
                 routers.push(
                     <Route
-                        path={page.path}
+                        path={menu.path}
                         key={generate()}
-                        render={(props) => <RouteComponent {...props}/> }
+                        render={(props) => <RouteComponent {...props} />}
                     />,
                 );
-            });
+            }
         });
     });
     return routers;
 };
 
-const transformToSider = () => {
-    const configs = getRouteConfig();
-    const menus = [];
-    configs.forEach((ele) => {
-        const groups = ele.group || [];
-        groups.forEach((group) => {
+/**
+ * 转换当前的导航信息
+ */
+const Sider = () => {
+    const location = useLocation();
+    let currentNav;
 
+    getRouteConfig().forEach((nav) => {
+        const pathname = location.pathname;
+        nav.menus?.some((menu) => {
+            if (menu.pages) {
+                return menu.pages.some((page) => {
+                    if (page.path === pathname) {
+                        currentNav = nav;
+                        return true;
+                    }
+                    return false;
+                });
+            } else {
+                if (menu.path === pathname) {
+                    currentNav = nav;
+                    return true;
+                }
+            }
         });
     });
-    return []
-}
 
-export const DocLayout = ({ menus }: DocLayoutProps) => {
+    const menuDom = [];
+    currentNav?.menus?.forEach((menu) => {
+        if (menu.pages) {
+            menuDom.push(<div>{menu.title}</div>);
+            menu.pages.forEach((page) => {
+                menuDom.push(<li onClick={() => {}}>{page.title}</li>);
+            });
+        } else {
+            menuDom.push(<li onClick={() => {}}>{menu.title}</li>);
+        }
+    });
+    return <>{menuDom}</>;
+};
+
+export const DocLayout = () => {
     return (
         <Router>
             <div className={`${prefixCls}-layout`}>
@@ -63,9 +104,7 @@ export const DocLayout = ({ menus }: DocLayoutProps) => {
                 <div className={`${prefixCls}-body`}>
                     <div className={`${prefixCls}-body-sider`}>
                         <ul>
-                            {menus?.map((menu) => (
-                                <li onClick={() => {}}>{menu.title}</li>
-                            ))}
+                            <Sider />
                         </ul>
                     </div>
                     <React.Suspense fallback={<LoadingFallback />}>
