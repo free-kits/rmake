@@ -1,6 +1,7 @@
 # @free-kits/dt-doc
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4cae52220c4433a8d8b813cf50433ad)](https://app.codacy.com/gh/free-kits/doc?utm_source=github.com&utm_medium=referral&utm_content=free-kits/doc&utm_campaign=Badge_Grade)[![codecov](https://codecov.io/gh/free-kits/dt-doc/branch/canary/graph/badge.svg?token=ZX8NIV3186)](https://codecov.io/gh/free-kits/dt-doc)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc?ref=badge_shield)
 
 ## 介绍
 
@@ -47,3 +48,7 @@ title: Button 按钮
 ## 附言
 
 灵感来自于 [https://github.com/umijs/dumi](https://github.com/umijs/dumi)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc?ref=badge_large)
