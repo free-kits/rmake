@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import chokidar from 'chokidar';
 import { join } from 'path';
 import { compiler, devServer, copyFileDoc } from './config/server';

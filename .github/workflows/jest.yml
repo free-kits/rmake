@@ -19,10 +19,11 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Run the tests and generate coverage report ${{ matrix.node-version }}
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
             - run: yarn
-            - run: yarn build
-            - run: yarn test
+            - run: yarn test -- --coverage
+            - name: Upload coverage to Codecov ${{ matrix.node-version }}
+              uses: codecov/codecov-action@v1
