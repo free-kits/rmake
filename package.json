@@ -12,7 +12,7 @@
         "build": "tsc"
     },
     "bin": {
-        "freekits-doc": "bin/main.js"
+        "freekits-doc": "./bin/main.js"
     },
     "files": [
         "bin"
