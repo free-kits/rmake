@@ -101,7 +101,6 @@ const NavLi = ({
     nav
 }) => {
     const history = useHistory();
-
     return (
         <li
             onClick={() => {
@@ -116,8 +115,10 @@ const NavLi = ({
                 })
             }}
         >
-            <a>{nav.title}</a>
-            <span className={`${prefixCls}-header-navs-indicator`} />
+            <div>
+                <a>{nav.title}</a>
+                <span className={`${prefixCls}-header-navs-indicator`} />
+            </div>
         </li>
     )
 }
@@ -129,7 +130,7 @@ const Nav = () => {
     const navs = [];
 
     getRouteConfig().forEach((nav) => {
-        navs.push(<NavLi nav={nav}/>)
+        navs.push(<NavLi key={generate()} nav={nav}/>)
     })
 
     return (
