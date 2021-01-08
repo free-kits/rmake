@@ -1,6 +1,6 @@
 import Config from 'webpack-chain';
 import { join } from 'path';
-import { copySync, existsSync, removeSync } from 'fs-extra';
+import { copySync } from 'fs-extra';
 import WebpackDevServer from 'webpack-dev-server';
 import Webpack from 'webpack';
 import { getConfig } from './setting';
@@ -12,9 +12,9 @@ import { createRouteConfig } from './router';
 
 export const copyFileDoc = () => {
     const toPathDir = join(process.cwd(), '.doc');
-    if (existsSync(toPathDir)) {
-        removeSync(toPathDir);
-    }
+    // if (existsSync(toPathDir)) {
+    //     removeSync(toPathDir);
+    // }
     copySync(
         join(__dirname, '..', '..', 'template', 'webpack', '.doc'),
         toPathDir,
