@@ -61,8 +61,8 @@ const transformToRouter = () => {
  */
 const Sider = () => {
     const location = useLocation();
+    const history = useHistory();
     let currentNav;
-
     getRouteConfig().forEach((nav) => {
         const pathname = location.pathname;
         nav.menus?.some((menu) => {
@@ -88,10 +88,28 @@ const Sider = () => {
         if (menu.pages) {
             menuDom.push(<div key={generate()}>{menu.title}</div>);
             menu.pages.forEach((page) => {
-                menuDom.push(<li key={generate()}>{page.title}</li>);
+                menuDom.push((
+                    <li
+                        key={generate()}
+                        onClick={() => {
+                            history.push(page.path)
+                        }}
+                    >
+                        {page.title}
+                    </li>
+                ));
             });
         } else {
-            menuDom.push(<li key={generate()}>{menu.title}</li>);
+            menuDom.push((
+                <li
+                    key={generate()}
+                    onClick={() => {
+                        history.push(menu.path)
+                    }}
+                >
+                    {menu.title}
+                </li>
+            ));
         }
     });
     return <ul>{menuDom}</ul>;
