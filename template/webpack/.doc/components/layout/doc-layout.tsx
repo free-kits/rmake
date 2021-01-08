@@ -4,6 +4,7 @@ import {
     Switch,
     Route,
     useLocation,
+    useHistory,
 } from 'react-router-dom';
 import { generate } from 'shortid';
 
@@ -93,19 +94,61 @@ const Sider = () => {
             menuDom.push(<li key={generate()}>{menu.title}</li>);
         }
     });
-    return <>{menuDom}</>;
+    return <ul>{menuDom}</ul>;
 };
+
+const NavLi = ({
+    nav
+}) => {
+    const history = useHistory();
+
+    return (
+        <li
+            onClick={() => {
+                nav.menus?.some((menu) => {
+                    if (menu.pages) {
+                        history.push(menu.pages[0].path);
+                        return true
+                    } else {
+                        history.push(menu.path);
+                        return true;
+                    }
+                })
+            }}
+        >
+            <a>{nav.title}</a>
+            <span className={`${prefixCls}-header-navs-indicator`} />
+        </li>
+    )
+}
+
+/**
+ * 获取菜单的头部信息
+ */
+const Nav = () => {
+    const navs = [];
+
+    getRouteConfig().forEach((nav) => {
+        navs.push(<NavLi nav={nav}/>)
+    })
+
+    return (
+        <ul>
+            {navs}
+        </ul>
+    )
+}
 
 export const DocLayout = () => {
     return (
         <Router>
             <div className={`${prefixCls}-layout`}>
-                <header className={`${prefixCls}-header`}></header>
+                <header className={`${prefixCls}-header`}>
+                    <Nav />
+                </header>
                 <div className={`${prefixCls}-body`}>
                     <div className={`${prefixCls}-body-sider`}>
-                        <ul>
-                            <Sider />
-                        </ul>
+                        <Sider />
                     </div>
                     <React.Suspense fallback={<LoadingFallback />}>
                         <div className={`${prefixCls}-body-content`}>

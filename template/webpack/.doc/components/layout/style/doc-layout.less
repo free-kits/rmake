@@ -5,7 +5,7 @@
 @prefix-cls-layout: ~'@{prefix-cls}-layout';
 
 .@{prefix-cls-layout} {
-    --header-height: 3em;
+    --header-height: 4rem;
     height: 100%;
 }
 
@@ -13,6 +13,27 @@
     height: var(--header-height);
     background-color: #212121;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    > ul {
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        padding-inline-start: 0px;
+        padding-right: 4rem;
+        height: var(--header-height);
+        float: right;
+        > li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+            height: 100%;
+            cursor: pointer;
+            > a {
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+        }
+    }
 }
 
 .@{prefix-cls-body} {
