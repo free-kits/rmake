@@ -5,7 +5,7 @@
 @prefix-cls-layout: ~'@{prefix-cls}-layout';
 
 .@{prefix-cls-layout} {
-    --header-height: 4rem;
+    --header-height: 3.5rem;
     height: 100%;
 }
 
@@ -17,7 +17,7 @@
         margin-block-start: 0px;
         margin-block-end: 0px;
         padding-inline-start: 0px;
-        padding-right: 4rem;
+        padding-right: 2rem;
         height: var(--header-height);
         float: right;
         > li {
@@ -65,8 +65,10 @@
             padding-top: 0.4em;
             padding-bottom: 0.4em;
             padding-inline-start: 2em;
+            transition: background-color 600ms;
             &:hover {
-                background-color: #eee;
+                background-color: #BBBBBB;
+                border-right: 3px solid  rgba(33,33,33, 0.7);
             }
         }
     }
