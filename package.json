@@ -32,7 +32,7 @@
         "fs-extra": "^9.0.1",
         "html-webpack-plugin": "^5.0.0-beta.1",
         "js-yaml": "^3.14.1",
-        "less": "^4.0.0",
+        "less": "^4.1.0",
         "less-loader": "^7.2.1",
         "log4js": "^6.3.0",
         "react": "^17.0.1",
