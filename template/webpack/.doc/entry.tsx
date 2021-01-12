@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DocLayout } from './components/index';
+import { DocRouter } from './components/index';
 
-const Root = () => <DocLayout />;
+const Root = () => <DocRouter />;
 
 ReactDOM.render(<Root />, document.getElementById('root'));
