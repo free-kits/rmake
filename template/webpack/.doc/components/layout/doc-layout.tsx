@@ -178,28 +178,59 @@ const Title = () => {
     );
 };
 
-export const DocLayout = () => {
+const useBodySider = () => {
+    const location = useLocation();
+    const home = (
+        <>
+            <div className={`${prefixCls}-body-home`}>
+
+            </div>
+        </>
+    )
+
+    const routes = (
+        <React.Suspense fallback={<LoadingFallback />}>
+            <div className={`${prefixCls}-body-content`}>
+                <Switch>
+                    {transformToRouter()}
+                    <Route path="/">
+                        {location.pathname === '/' ? home: null}
+                    </Route>
+                    <Route path="*">{/** 404 页面 */}</Route>
+                </Switch>
+            </div>
+        </React.Suspense>
+    );
+
+    if (location.pathname !== '/') {
+        return (
+            <>
+                <div className={`${prefixCls}-body-sider`}>
+                    <Sider />
+                </div>
+                {routes}
+            </>
+        );
+    }
+    return routes;
+};
+
+const DocLayout = () => {
+    return (
+        <div className={`${prefixCls}-layout`}>
+            <header className={`${prefixCls}-header`}>
+                <Title />
+                <Nav />
+            </header>
+            <div className={`${prefixCls}-body`}>{useBodySider()}</div>
+        </div>
+    );
+};
+
+export const DocRouter = () => {
     return (
         <Router>
-            <div className={`${prefixCls}-layout`}>
-                <header className={`${prefixCls}-header`}>
-                    <Title />
-                    <Nav />
-                </header>
-                <div className={`${prefixCls}-body`}>
-                    <div className={`${prefixCls}-body-sider`}>
-                        <Sider />
-                    </div>
-                    <React.Suspense fallback={<LoadingFallback />}>
-                        <div className={`${prefixCls}-body-content`}>
-                            <Switch>
-                                {transformToRouter()}
-                                <Route path="*">{/** 404 页面 */}</Route>
-                            </Switch>
-                        </div>
-                    </React.Suspense>
-                </div>
-            </div>
+            <DocLayout />
         </Router>
     );
 };

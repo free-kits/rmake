@@ -23,7 +23,6 @@ export default (config: Config) => {
                 '@babel/preset-typescript',
             ],
         });
-
     config.module
         .rule('css')
         .test(/\.css$/)
@@ -32,6 +31,12 @@ export default (config: Config) => {
         .end()
         .use('css/loader')
         .loader('css-loader');
+
+    config.module
+        .rule('url-loader')
+        .test(/\.(png|jpg|gif|svg)$/i)
+        .use('url-loader')
+        .loader('url-loader');
 
     config.module
         .rule('less')
@@ -61,5 +66,7 @@ export default (config: Config) => {
         .end()
         .use('babel-mdx/loader')
         .loader('@mdx-js/loader');
+
+
     logger.debug(JSON.stringify(config.toConfig()));
 };
