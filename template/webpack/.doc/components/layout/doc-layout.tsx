@@ -56,12 +56,31 @@ const transformToRouter = () => {
     return routers;
 };
 
+const SiderLi = ({
+    key,
+    title,
+    path
+}) => {
+    const history = useHistory();
+    const location = useLocation();
+    return (
+        <li
+            className={location.pathname === path ? `${prefixCls}-body-select` : ''}
+            key={key}
+            onClick={() => {
+                history.push(path)
+            }}
+        >
+            <a>{title}</a>
+        </li>
+    )
+}
+
 /**
  * 转换当前的导航信息
  */
 const Sider = () => {
     const location = useLocation();
-    const history = useHistory();
     let currentNav;
     getRouteConfig().forEach((nav) => {
         const pathname = location.pathname;
@@ -88,35 +107,18 @@ const Sider = () => {
         if (menu.pages) {
             menuDom.push(<div key={generate()}>{menu.title}</div>);
             menu.pages.forEach((page) => {
-                menuDom.push((
-                    <li
-                        key={generate()}
-                        onClick={() => {
-                            history.push(page.path)
-                        }}
-                    >
-                        {page.title}
-                    </li>
-                ));
+                menuDom.push(<SiderLi title={page.title} path={page.path} key={generate()} />);
             });
         } else {
-            menuDom.push((
-                <li
-                    key={generate()}
-                    onClick={() => {
-                        history.push(menu.path)
-                    }}
-                >
-                    {menu.title}
-                </li>
-            ));
+            menuDom.push(<SiderLi title={menu.title} path={menu.path} key={generate()} />);
         }
     });
     return <ul>{menuDom}</ul>;
 };
 
 const NavLi = ({
-    nav
+    nav,
+    key
 }) => {
     const history = useHistory();
     return (
@@ -146,9 +148,8 @@ const NavLi = ({
  */
 const Nav = () => {
     const navs = [];
-
     getRouteConfig().forEach((nav) => {
-        navs.push(<NavLi key={generate()} nav={nav}/>)
+        navs.push(<NavLi nav={nav} key={generate()} />)
     })
 
     return (

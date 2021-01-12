@@ -4,6 +4,7 @@
 @prefix-cls-header: ~'@{prefix-cls}-header';
 @prefix-cls-layout: ~'@{prefix-cls}-layout';
 
+
 .@{prefix-cls-layout} {
     --header-height: 3.5rem;
     height: 100%;
@@ -59,16 +60,17 @@
             padding-bottom: 0.3em;
             cursor: default;
         }
+        .@{prefix-cls-body}-select {
+            border-right: 3px solid rgb(97, 218, 251, .4);
+        }
         > li {
             display: flex;
             cursor: pointer;
             padding-top: 0.4em;
             padding-bottom: 0.4em;
             padding-inline-start: 2em;
-            transition: background-color 600ms;
             &:hover {
-                background-color: #BBBBBB;
-                border-right: 3px solid  rgba(33,33,33, 0.7);
+                opacity: .7;
             }
         }
     }
