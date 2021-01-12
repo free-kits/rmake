@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { generate } from 'shortid';
 import { prefixCls } from '../_util/common';
+import { getTitle } from '../_util/config';
 import getRouteConfig from '../../config';
 import './style/doc-layout.less';
 
@@ -55,23 +56,22 @@ const transformToRouter = () => {
     return routers;
 };
 
-const SiderLi: React.FC = ({
-    title,
-    path
-}) => {
+const SiderLi: React.FC = ({ title, path }) => {
     const history = useHistory();
     const location = useLocation();
     return (
         <li
-            className={location.pathname === path ? `${prefixCls}-body-select` : ''}
+            className={
+                location.pathname === path ? `${prefixCls}-body-select` : ''
+            }
             onClick={() => {
-                history.push(path)
+                history.push(path);
             }}
         >
             <a>{title}</a>
         </li>
-    )
-}
+    );
+};
 
 /**
  * 转换当前的导航信息
@@ -104,18 +104,28 @@ const Sider = () => {
         if (menu.pages) {
             menuDom.push(<div key={generate()}>{menu.title}</div>);
             menu.pages.forEach((page) => {
-                menuDom.push(<SiderLi title={page.title} path={page.path} key={generate()} />);
+                menuDom.push(
+                    <SiderLi
+                        title={page.title}
+                        path={page.path}
+                        key={generate()}
+                    />,
+                );
             });
         } else {
-            menuDom.push(<SiderLi title={menu.title} path={menu.path} key={generate()} />);
+            menuDom.push(
+                <SiderLi
+                    title={menu.title}
+                    path={menu.path}
+                    key={generate()}
+                />,
+            );
         }
     });
     return <ul>{menuDom}</ul>;
 };
 
-const NavLi: React.FC = ({
-    nav
-}) => {
+const NavLi: React.FC = ({ nav }) => {
     const history = useHistory();
     return (
         <li
@@ -123,12 +133,12 @@ const NavLi: React.FC = ({
                 nav.menus?.some((menu) => {
                     if (menu.pages) {
                         history.push(menu.pages[0].path);
-                        return true
+                        return true;
                     } else {
                         history.push(menu.path);
                         return true;
                     }
-                })
+                });
             }}
         >
             <div>
@@ -136,8 +146,8 @@ const NavLi: React.FC = ({
                 <span className={`${prefixCls}-header-navs-indicator`} />
             </div>
         </li>
-    )
-}
+    );
+};
 
 /**
  * 获取菜单的头部信息
@@ -145,21 +155,35 @@ const NavLi: React.FC = ({
 const Nav = () => {
     const navs = [];
     getRouteConfig().forEach((nav) => {
-        navs.push(<NavLi nav={nav} key={generate()} />)
-    })
+        navs.push(<NavLi nav={nav} key={generate()} />);
+    });
 
+    return <ul>{navs}</ul>;
+};
+
+const Title = () => {
+    const history = useHistory();
     return (
-        <ul>
-            {navs}
-        </ul>
-    )
-}
+        <div>
+            <h1>
+                <a
+                    onClick={() => {
+                        history.push('/');
+                    }}
+                >
+                    {getTitle()}
+                </a>
+            </h1>
+        </div>
+    );
+};
 
 export const DocLayout = () => {
     return (
         <Router>
             <div className={`${prefixCls}-layout`}>
                 <header className={`${prefixCls}-header`}>
+                    <Title />
                     <Nav />
                 </header>
                 <div className={`${prefixCls}-body`}>

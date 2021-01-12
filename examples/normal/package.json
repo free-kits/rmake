@@ -15,6 +15,6 @@
         "react-dom": "^17.0.1"
     },
     "@freekits/dt-doc": {
-        "title": "演示项目"
+        "title": "Free Kits Doc"
     }
 }
