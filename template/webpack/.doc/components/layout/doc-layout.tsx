@@ -7,7 +7,6 @@ import {
     useHistory,
 } from 'react-router-dom';
 import { generate } from 'shortid';
-
 import { prefixCls } from '../_util/common';
 import getRouteConfig from '../../config';
 import './style/doc-layout.less';
@@ -19,7 +18,7 @@ export interface Menu {
     route: string;
 }
 
-const LoadingFallback = () => <div>Loading...</div>;
+const LoadingFallback = () => <div></div>;
 
 /***
  * 将配置信息转换成为路由信息
@@ -56,8 +55,7 @@ const transformToRouter = () => {
     return routers;
 };
 
-const SiderLi = ({
-    key,
+const SiderLi: React.FC = ({
     title,
     path
 }) => {
@@ -66,7 +64,6 @@ const SiderLi = ({
     return (
         <li
             className={location.pathname === path ? `${prefixCls}-body-select` : ''}
-            key={key}
             onClick={() => {
                 history.push(path)
             }}
@@ -116,9 +113,8 @@ const Sider = () => {
     return <ul>{menuDom}</ul>;
 };
 
-const NavLi = ({
-    nav,
-    key
+const NavLi: React.FC = ({
+    nav
 }) => {
     const history = useHistory();
     return (
