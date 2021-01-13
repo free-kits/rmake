@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+    useEffect
+} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -8,12 +10,14 @@ import {
 } from 'react-router-dom';
 import { generate } from 'shortid';
 import { MDXProvider } from '@mdx-js/react';
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/github';
 
 import { prefixCls } from '../_util/common';
 import { getTitle } from '../_util/config';
 import getRouteConfig from '../../config';
+import H1 from '../markdown/h1';
+import H2 from '../markdown/h2';
+import Code from '../markdown/code';
+
 import './style/doc-layout.less';
 
 export interface Menu {
@@ -23,12 +27,27 @@ export interface Menu {
     route: string;
 }
 
-const LoadingFallback = () => <div></div>;
+const LoadingFallback = () => {
+    const location = useLocation();
+
+    useEffect(() => {
+        return () => {
+            const name = location.hash;
+            const element = document.querySelector(`[name='${name}']`);
+            if (element) {
+                element.scrollIntoView(true);
+            }
+        }
+    }, []);
+
+    return <div />
+};
 
 /***
  * 将配置信息转换成为路由信息
  */
-const transformToRouter = () => {
+const useTransformToRouter = () => {
+    const location = useLocation();
     const configs = getRouteConfig();
     const routers = [];
     configs.forEach((ele) => {
@@ -182,41 +201,9 @@ const Title = () => {
 };
 
 const components = {
-    code: ({ children, className }) => {
-        const language = className.replace(/language-/, '');
-        return (
-            <Highlight
-                {...defaultProps}
-                code={children.trim()}
-                theme={theme}
-                language={language}
-            >
-                {({
-                    className,
-                    style,
-                    tokens,
-                    getLineProps,
-                    getTokenProps,
-                }) => (
-                    <pre
-                        className={className}
-                        style={{ ...style, padding: '.8rem' }}
-                    >
-                        {tokens.map((line, i) => (
-                            <div key={i} {...getLineProps({ line, key: i })}>
-                                {line.map((token, key) => (
-                                    <span
-                                        key={key}
-                                        {...getTokenProps({ token, key })}
-                                    />
-                                ))}
-                            </div>
-                        ))}
-                    </pre>
-                )}
-            </Highlight>
-        );
-    },
+    h1: H1,
+    h2: H2,
+    code: Code,
 };
 
 const useBodySider = () => {
@@ -232,7 +219,7 @@ const useBodySider = () => {
             <div className={`${prefixCls}-body-content`}>
                 <MDXProvider components={components}>
                     <Switch>
-                        {transformToRouter()}
+                        {useTransformToRouter()}
                         <Route path="/">
                             {location.pathname === '/' ? home : null}
                         </Route>
