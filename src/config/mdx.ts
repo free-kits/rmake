@@ -67,6 +67,5 @@ export default (config: Config) => {
         .use('babel-mdx/loader')
         .loader('@mdx-js/loader');
 
-
     logger.debug(JSON.stringify(config.toConfig()));
 };
