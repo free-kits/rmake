@@ -7,6 +7,10 @@ import {
     useHistory,
 } from 'react-router-dom';
 import { generate } from 'shortid';
+import { MDXProvider } from '@mdx-js/react';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/github';
+
 import { prefixCls } from '../_util/common';
 import { getTitle } from '../_util/config';
 import getRouteConfig from '../../config';
@@ -177,26 +181,64 @@ const Title = () => {
     );
 };
 
+const components = {
+    code: ({ children, className }) => {
+        const language = className.replace(/language-/, '');
+        return (
+            <Highlight
+                {...defaultProps}
+                code={children.trim()}
+                theme={theme}
+                language={language}
+            >
+                {({
+                    className,
+                    style,
+                    tokens,
+                    getLineProps,
+                    getTokenProps,
+                }) => (
+                    <pre
+                        className={className}
+                        style={{ ...style, padding: '.8rem' }}
+                    >
+                        {tokens.map((line, i) => (
+                            <div key={i} {...getLineProps({ line, key: i })}>
+                                {line.map((token, key) => (
+                                    <span
+                                        key={key}
+                                        {...getTokenProps({ token, key })}
+                                    />
+                                ))}
+                            </div>
+                        ))}
+                    </pre>
+                )}
+            </Highlight>
+        );
+    },
+};
+
 const useBodySider = () => {
     const location = useLocation();
     const home = (
         <>
-            <div className={`${prefixCls}-body-home`}>
-
-            </div>
+            <div className={`${prefixCls}-body-home`}></div>
         </>
-    )
+    );
 
     const routes = (
         <React.Suspense fallback={<LoadingFallback />}>
             <div className={`${prefixCls}-body-content`}>
-                <Switch>
-                    {transformToRouter()}
-                    <Route path="/">
-                        {location.pathname === '/' ? home: null}
-                    </Route>
-                    <Route path="*">{/** 404 页面 */}</Route>
-                </Switch>
+                <MDXProvider components={components}>
+                    <Switch>
+                        {transformToRouter()}
+                        <Route path="/">
+                            {location.pathname === '/' ? home : null}
+                        </Route>
+                        <Route path="*">{/** 404 页面 */}</Route>
+                    </Switch>
+                </MDXProvider>
             </div>
         </React.Suspense>
     );
