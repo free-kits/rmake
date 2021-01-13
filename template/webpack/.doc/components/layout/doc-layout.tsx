@@ -143,7 +143,6 @@ const NavLi: React.FC = ({ nav }) => {
         >
             <div>
                 <a>{nav.title}</a>
-                <span className={`${prefixCls}-header-navs-indicator`} />
             </div>
         </li>
     );
