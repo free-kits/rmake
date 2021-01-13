@@ -103,7 +103,7 @@ export const findFileToNavs = () => {
             // 如果数据结构中存在对应的nav信息，则直接添加
             const nav = filterNavs[0];
             const instanceOfMenuGroup = (object: any): object is MenuGroup => 'pages' in object;
-            const menusFilter = nav.menus.filter((menu) => menu.title === yml.group.title && instanceOfMenuGroup(menu));
+            const menusFilter = nav.menus.filter((menu) => instanceOfMenuGroup(menu) && menu.title === yml.group.title);
 
             if (yml.group && menusFilter.length > 0) {
                 if (instanceOfMenuGroup(menusFilter[0]) && menusFilter[0].pages) {
@@ -116,6 +116,8 @@ export const findFileToNavs = () => {
                         pages: [page],
                     });
                 }
+            } else {
+                nav.menus.push(page);
             }
         } else {
             // 不存在对应的nav信息，则添加
@@ -124,7 +126,6 @@ export const findFileToNavs = () => {
                 order: yml.nav.order || defaultOrder,
                 menus: [],
             };
-
             if (yml.group) {
                 addNav.menus.push({
                     title: yml.group.title,
