@@ -5,7 +5,7 @@ export default ({
 }) => {
     return (
         <h1 name={`#${children}`} className={className}>
-            <a>{children}</a>
+            {children}
         </h1>
     )
 }
