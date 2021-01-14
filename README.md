@@ -45,9 +45,12 @@ title: Button 按钮
   - title 表示当前分组的名称
 - title 表示当前在右侧显示的菜单信息
 
-## 附言
+## 致谢
 
-灵感来自于 [https://github.com/umijs/dumi](https://github.com/umijs/dumi)
+- 软件灵感来自于 [https://github.com/umijs/dumi](https://github.com/umijs/dumi)
+- 页面设计风格来自于[https://material.io/](https://material.io/)
+- 首页图片采用[https://web.dev/](https://web.dev/)
+- 感谢所有在packages.json中的依赖库
 
 ## License
 
