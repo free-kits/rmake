@@ -24,13 +24,13 @@
 例子
 
 ```md
----
+<!--
 nav:
     title: 组件
 group:
     title: 基础组件
 title: Button 按钮
----
+-->
 
 ## 这是一个测试的 md 文件
 
@@ -49,6 +49,6 @@ title: Button 按钮
 
 灵感来自于 [https://github.com/umijs/dumi](https://github.com/umijs/dumi)
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc?ref=badge_large)
