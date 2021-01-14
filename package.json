@@ -19,7 +19,7 @@
     ],
     "repository": "https://github.com/free-kits/doc.git",
     "author": "zhangj <zhangjin0908@hotmail.com>",
-    "license": "AGPL-3.0",
+    "license": "MIT",
     "dependencies": {
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
