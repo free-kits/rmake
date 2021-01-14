@@ -5,7 +5,7 @@ export default ({
 }) => {
     return (
         <h2 name={`#${encodeURIComponent(children)}`} className={className}>
-            <a href={`#${children}`}>{children}</a>
+            {children}
         </h2>
     )
 }
