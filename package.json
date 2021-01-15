@@ -9,7 +9,8 @@
         "eslint": "eslint src/**/* --ext '.js,.jsx,.ts,.tsx'",
         "mdlint": "markdownlint **/*.md",
         "prettier": "prettier --write .",
-        "build": "tsc"
+        "build": "tsc",
+        "build:site": "cd ./docs && npm install && npm run build"
     },
     "bin": {
         "freekits-doc": "./bin/main.js"
