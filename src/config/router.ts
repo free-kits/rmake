@@ -92,11 +92,13 @@ export const findFileToNavs = () => {
         if (!yml) return;
         const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
 
+        const pagePath = `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`.split(sep);
+
         const page: Page = {
             title: yml.title,
             order: defaultOrder,
             component: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
-            path: `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`.split(sep).join('/'),
+            path: pagePath.filter((path) => path !== '').join('/'),
         };
 
         logger.debug('file pages', page);
