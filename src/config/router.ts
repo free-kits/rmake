@@ -2,7 +2,7 @@ import {
     readdirSync, readFileSync, writeFileSync, statSync, Stats,
 } from 'fs-extra';
 import yaml from 'js-yaml';
-import { join } from 'path';
+import { join, sep } from 'path';
 
 import logger from './logger';
 
@@ -96,8 +96,10 @@ export const findFileToNavs = () => {
             title: yml.title,
             order: defaultOrder,
             component: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
-            path: `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`,
+            path: `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`.split(sep).join('/'),
         };
+
+        logger.debug('file pages', page);
 
         if (filterNavs.length > 0) {
             // 如果数据结构中存在对应的nav信息，则直接添加
