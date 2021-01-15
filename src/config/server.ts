@@ -9,7 +9,6 @@ import presetEntry from './entry';
 import presetMDX from './mdx';
 import presetPlugin from './plugin';
 import { createRouteConfig } from './router';
-import logger from './logger';
 
 export const copyFileDoc = () => {
     const toPathDir = join(process.cwd(), '.doc');
