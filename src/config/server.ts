@@ -56,8 +56,6 @@ export const compiler = () => {
     config.output.filename('[name].bundle.js');
     config.output.path(join(process.cwd(), 'dist'));
     const compilerWebpck = Webpack(config.toConfig());
-    compilerWebpck.compile(() => {
-        logger.debug('build end');
+    compilerWebpck.run(() => {
     });
-    logger.debug('-----');
 };
