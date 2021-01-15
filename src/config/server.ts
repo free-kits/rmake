@@ -9,6 +9,7 @@ import presetEntry from './entry';
 import presetMDX from './mdx';
 import presetPlugin from './plugin';
 import { createRouteConfig } from './router';
+import logger from './logger';
 
 export const copyFileDoc = () => {
     const toPathDir = join(process.cwd(), '.doc');
@@ -45,21 +46,18 @@ export const devServer = () => {
 };
 
 // 编译Webpack文件
-export const compiler = async () => new Promise<void>((resolve, reject) => {
-    try {
-        copyFileDoc();
-        const config = new Config();
-        presetEntry(config);
-        presetMDX(config);
-        presetPlugin(config);
-        config.mode('production');
-        config.output.filename('[name].bundle.js');
-        config.output.path(join(process.cwd(), 'dist'));
-        const compilerWebpck = Webpack(config.toConfig());
-        compilerWebpck.run(() => {
-            resolve();
-        });
-    } catch (error) {
-        reject(error);
-    }
-});
+export const compiler = () => {
+    copyFileDoc();
+    const config = new Config();
+    presetEntry(config);
+    presetMDX(config);
+    presetPlugin(config);
+    config.mode('production');
+    config.output.filename('[name].bundle.js');
+    config.output.path(join(process.cwd(), 'dist'));
+    const compilerWebpck = Webpack(config.toConfig());
+    compilerWebpck.compile(() => {
+        logger.debug('build end');
+    });
+    logger.debug('-----');
+};
