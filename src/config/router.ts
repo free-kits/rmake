@@ -93,12 +93,15 @@ export const findFileToNavs = () => {
         const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
 
         const pagePath = `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`.split(sep);
-
+        let realPath = `${pagePath.filter((path) => path !== '').join('/')}`;
+        if (realPath[0] !== '/') {
+            realPath = `/${realPath}`;
+        }
         const page: Page = {
             title: yml.title,
             order: defaultOrder,
             component: `/*@freekits/doc import*/..${file.replace(process.cwd(), '')}/*@freekits/doc import-end*/`,
-            path: pagePath.filter((path) => path !== '').join('/'),
+            path: realPath,
         };
 
         logger.debug('file pages', page);
