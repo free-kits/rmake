@@ -17,16 +17,14 @@ if (
 
 const param = process.argv[2];
 
-chokidar.watch(join(__dirname, '..', 'template', 'webpack', '.doc')).on('all', (eventName) => {
-    // const toPathDir = join(process.cwd(), '.doc');
-    if (eventName === 'change') {
-        logger.debug('file change....');
-        copyFileDoc();
-    }
-});
-
 // 启动项目开发
 if (param === 'dev') {
+    chokidar.watch(join(__dirname, '..', 'template', 'webpack', '.doc')).on('all', (eventName) => {
+        if (eventName === 'change') {
+            logger.debug('file change....');
+            copyFileDoc();
+        }
+    });
     devServer();
 } else if (param === 'build') {
     compiler();
