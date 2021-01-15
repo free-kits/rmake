@@ -10,7 +10,7 @@
         "mdlint": "markdownlint **/*.md",
         "prettier": "prettier --write .",
         "build": "tsc",
-        "build:site": "cd ./docs && npm install && npm run build"
+        "build:site": "yarn build && cd ./docs && npm install && npm run build"
     },
     "bin": {
         "freekits-doc": "./bin/main.js"
