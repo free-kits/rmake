@@ -17,6 +17,8 @@ import getRouteConfig from '../../config';
 import H1 from '../markdown/h1';
 import H2 from '../markdown/h2';
 import Code from '../markdown/code';
+import Blockquote from '../markdown/blockquote';
+import InlineCode from '../markdown/inline-code';
 
 import './style/doc-layout.less';
 
@@ -47,7 +49,6 @@ const LoadingFallback = () => {
  * 将配置信息转换成为路由信息
  */
 const useTransformToRouter = () => {
-    const location = useLocation();
     const configs = getRouteConfig();
     const routers = [];
     configs.forEach((ele) => {
@@ -204,6 +205,8 @@ const components = {
     h1: H1,
     h2: H2,
     code: Code,
+    blockquote: Blockquote,
+    inlineCode: InlineCode,
 };
 
 const useBodySider = () => {
