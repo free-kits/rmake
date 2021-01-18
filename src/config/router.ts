@@ -91,9 +91,8 @@ export const findFileToNavs = () => {
         // 未找到yum 信息直接return
         if (!yml) return;
         const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
-
-        const pagePath = `/${/[0-9a-zA-Z/_]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`.split(sep);
-        let realPath = `${pagePath.filter((path) => path !== '').join('/')}`;
+        const pagePath = `/${/[0-9a-zA-Z/_\\-]+/g.exec(file.replace(join(process.cwd(), 'src'), ''))![0]}`.split(sep);
+        let realPath = `${pagePath.filter((path) => !['', '/', '\\'].includes(path)).join('/')}`;
         if (realPath[0] !== '/') {
             realPath = `/${realPath}`;
         }
