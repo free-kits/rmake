@@ -4,8 +4,7 @@ import theme from 'prism-react-renderer/themes/duotoneLight';
 import './styles/code.less';
 
 export default ({ children, className }) => {
-    const language = className.replace(/language-/, '');
-    console.log(language)
+    const language = className?.replace(/language-/, '');
     return (
         <Highlight
             {...defaultProps}
