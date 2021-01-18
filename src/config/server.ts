@@ -23,13 +23,13 @@ export const copyFileDoc = () => {
 };
 
 // 启动开发服务器
-export const devServer = () => {
+export const devServer = async () => {
     copyFileDoc();
     const docConfig = getConfig();
     const config = new Config();
     presetEntry(config);
     presetMDX(config);
-    presetPlugin(config);
+    await presetPlugin(config);
     config.mode('development');
     config.devtool('cheap-module-source-map');
     config.output.publicPath('/');
