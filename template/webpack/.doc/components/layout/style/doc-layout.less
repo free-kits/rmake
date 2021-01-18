@@ -73,6 +73,30 @@
     background-position: right 50vw top 50%;
     background-size: 650px;
     background-repeat: no-repeat;
+    display: flex;
+    > div {
+        max-width: 408px;
+        margin: 1rem 20% 0 auto;
+        > p {
+            margin-bottom: 27px;
+            line-height: 1.6;
+        }
+        > button {
+            background-color: #3740ff;
+            color: #fff;
+            height: 40px;
+            cursor: pointer;
+            border: 0;
+            font-size: 1rem;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            transition: background-color .2s,box-shadow .2s;
+            padding: 0px 20px;
+            &:hover {
+                box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+            }
+        }
+    }
 }
 
 .@{prefix-cls-body}-sider {
