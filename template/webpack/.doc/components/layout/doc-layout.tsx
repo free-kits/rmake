@@ -12,7 +12,7 @@ import { generate } from 'shortid';
 import { MDXProvider } from '@mdx-js/react';
 
 import { prefixCls } from '../_util/common';
-import { getTitle } from '../_util/config';
+import { getTitle, getDescription } from '../_util/config';
 import getRouteConfig from '../../config';
 import H1 from '../markdown/h1';
 import H2 from '../markdown/h2';
@@ -211,9 +211,31 @@ const components = {
 
 const useBodySider = () => {
     const location = useLocation();
+    const history = useHistory();
     const home = (
         <>
-            <div className={`${prefixCls}-body-home`}></div>
+            <div className={`${prefixCls}-body-home`}>
+                <div>
+                    <h1>{getTitle()}</h1>
+                    <p>{getDescription()}</p>
+                    <button
+                        onClick={() => {
+                            const configs = getRouteConfig();
+                            configs?.[0].menus?.some((menu) => {
+                                if (menu.pages) {
+                                    history.push(menu.pages[0].path);
+                                    return true;
+                                } else {
+                                    history.push(menu.path);
+                                    return true;
+                                }
+                            });
+                        }}
+                    >
+                        快速上手
+                    </button>
+                </div>
+            </div>
         </>
     );
 
