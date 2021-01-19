@@ -1,5 +1,6 @@
 
 import packages from '../../../package.json';
+import getRouteConfig from '../../config';
 
 const getConfig = () => packages['@freekits/dt-doc'];
 
@@ -20,4 +21,26 @@ export const getDescription = () => {
     if (config.description) return config.description;
     console.log(packages)
     return packages.description;
+}
+
+/**
+ * 获得当前所有的路径信息
+ */
+export const getAllPath = () => {
+    const configs = getRouteConfig();
+    const paths = [];
+    configs.forEach((ele) => {
+        const menus = ele.menus || [];
+        menus.forEach((menu) => {
+            if (menu.pages) {
+                menu.pages.forEach((page) => {
+                    paths.push(page.path);
+
+                });
+            } else {
+                paths.push(menu.path);
+            }
+        });
+    });
+    return paths;
 }
