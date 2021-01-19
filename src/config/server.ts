@@ -45,12 +45,12 @@ export const devServer = async () => {
 };
 
 // 编译Webpack文件
-export const compiler = () => {
+export const compiler = async () => {
     copyFileDoc();
     const config = new Config();
     presetEntry(config);
     presetMDX(config);
-    presetPlugin(config);
+    await presetPlugin(config);
     config.mode('production');
     config.output.filename('[name].bundle.js');
     config.output.path(join(process.cwd(), 'dist'));
