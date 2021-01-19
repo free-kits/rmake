@@ -20,7 +20,7 @@ const LoadingFallback = () => {
     useEffect(() => {
         return () => {
             const name = location.hash;
-            const element = document.querySelector(`[name='${name}']`);
+            const element = self.document.querySelector(`[name='${name}']`);
             if (element) {
                 element.scrollIntoView(true);
             }
