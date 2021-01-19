@@ -9,11 +9,11 @@ import { generate } from 'shortid';
 import { MDXProvider } from '@mdx-js/react';
 
 import { getTitle, getDescription } from '../_util/config';
-import { Sider } from './sider';
 import { components } from '../markdown';
 import { prefixCls } from '../_util/common';
-
 import getRouteConfig from '../../config';
+
+const Sider = React.lazy(() => import('./sider'));
 
 const LoadingFallback = () => {
     const location = useLocation();
@@ -113,12 +113,12 @@ export const useBodyLayout = () => {
 
     if (location.pathname !== '/') {
         return (
-            <>
+            <React.Suspense fallback={<LoadingFallback />}>
                 <div className={`${prefixCls}-body-sider`}>
                     <Sider />
                 </div>
                 {routes}
-            </>
+            </React.Suspense>
         );
     }
     return routes;
