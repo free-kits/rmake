@@ -14,13 +14,13 @@ export default async (config: Config) => {
 
     const packages = await import(join(process.cwd(), 'package.json'));
     const title = packages['@freekits/dt-doc'].title || packages.name;
-    config.plugin('define-plugin').use(
+    config.plugin('workbox-webpack-plugin').use(
         new WorkboxWebpackPlugin.GenerateSW({
             clientsClaim: true,
             skipWaiting: true,
         }),
     );
-    config.plugin('copy-webpack-plugin').use(
+    config.plugin('define-plugin').use(
         new webpack.DefinePlugin({
             title: JSON.stringify(title),
         }),
