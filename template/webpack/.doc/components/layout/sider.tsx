@@ -29,7 +29,7 @@ const SiderLi: React.FC<{title: string, path: string}> = ({ title, path }) => {
 /**
  * 转换当前的导航信息
  */
-export const Sider = () => {
+const Sider = () => {
     const location = useLocation();
     let currentNav;
     getRouteConfig().forEach((nav) => {
@@ -77,3 +77,5 @@ export const Sider = () => {
     });
     return <ul>{menuDom}</ul>;
 };
+
+export default Sider;
