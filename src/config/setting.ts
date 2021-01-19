@@ -28,5 +28,3 @@ export class DocConfig {
      */
     webpackChain?: (config: Config) => void;
 }
-
-export const getConfig = (): DocConfig => new DocConfig();

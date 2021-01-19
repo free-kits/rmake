@@ -1,11 +1,8 @@
 import Config from 'webpack-chain';
 import logger from './logger';
-import { getConfig } from './setting';
 
 export default (config: Config) => {
-    const docConfig = getConfig();
-    const targets = docConfig.targets || 'defaults';
-
+    const targets = 'defaults';
     config.module
         .rule('tsReact')
         .test(/\.ts(x?)$/)

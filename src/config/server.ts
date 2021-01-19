@@ -3,7 +3,6 @@ import { join } from 'path';
 import { copySync } from 'fs-extra';
 import WebpackDevServer from 'webpack-dev-server';
 import Webpack from 'webpack';
-import { getConfig } from './setting';
 
 import presetEntry from './entry';
 import presetMDX from './mdx';
@@ -25,7 +24,6 @@ export const copyFileDoc = () => {
 // 启动开发服务器
 export const devServer = async () => {
     copyFileDoc();
-    const docConfig = getConfig();
     const config = new Config();
     presetEntry(config);
     presetMDX(config);
@@ -34,7 +32,10 @@ export const devServer = async () => {
     config.devtool('cheap-module-source-map');
     config.output.publicPath('/');
     const compiler = Webpack(config.toConfig());
-    const { devServer: devServerConfig } = docConfig;
+
+    const packages = await import(join(process.cwd(), 'package.json'));
+    const devServerConfig = packages['@freekits/dt-doc'].devServer || {};
+
     const webpackDevServer = new WebpackDevServer(compiler, {
         stats: 'errors-only',
         https: devServerConfig?.https,
