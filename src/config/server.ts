@@ -55,9 +55,6 @@ export const compiler = async () => {
     config.mode('production');
     config.output.filename('[name].bundle.js');
     config.output.path(join(process.cwd(), 'dist'));
-    config.optimization.splitChunks({
-        chunks: 'all',
-    });
     const compilerWebpck = Webpack(config.toConfig());
     compilerWebpck.run(() => {
     });
