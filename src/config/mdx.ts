@@ -1,5 +1,4 @@
 import Config from 'webpack-chain';
-import logger from './logger';
 
 export default (config: Config) => {
     const targets = 'defaults';
@@ -63,6 +62,4 @@ export default (config: Config) => {
         .end()
         .use('babel-mdx/loader')
         .loader('@mdx-js/loader');
-
-    logger.debug(JSON.stringify(config.toConfig()));
 };

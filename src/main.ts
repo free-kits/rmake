@@ -2,7 +2,6 @@
 
 import chokidar from 'chokidar';
 import { join } from 'path';
-import logger from './config/logger';
 import { compiler, devServer, copyFileDoc } from './config/server';
 
 // 校验当前的参数是否正确
@@ -22,7 +21,6 @@ const param = process.argv[2];
     if (param === 'dev') {
         chokidar.watch(join(__dirname, '..', 'template', 'webpack', '.doc')).on('all', (eventName) => {
             if (eventName === 'change') {
-                logger.debug('file change....');
                 copyFileDoc();
             }
         });
