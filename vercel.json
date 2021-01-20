@@ -6,7 +6,7 @@
         {
             "src": "/(.*)",
             "status": 404,
-            "dest": "/index.html"
+            "dest": "/"
         }
     ]
 }
