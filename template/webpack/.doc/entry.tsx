@@ -13,11 +13,12 @@ ReactDOM.render(<Root />, document.getElementById('root'));
 // 添加离线缓存
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        getAllPath().forEach((path) => {
-            const handler = createHandlerBoundToURL(path);
-            const navigationRoute = new NavigationRoute(handler);
-            registerRoute(navigationRoute);
-        })
-        navigator.serviceWorker.register('/service-worker.js');
+        navigator.serviceWorker.register('/service-worker.js').then(() => {
+            getAllPath().forEach((path) => {
+                const handler = createHandlerBoundToURL(path);
+                const navigationRoute = new NavigationRoute(handler);
+                registerRoute(navigationRoute);
+            })
+        });
     });
 }
