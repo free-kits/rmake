@@ -5,7 +5,7 @@ import {
     useLocation,
 } from 'react-router-dom';
 import { generate } from 'shortid';
-import { MenuOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined } from '@ant-design/icons';
 
 
 import { prefixCls } from '../_util/common';
@@ -87,7 +87,7 @@ const Sider = () => {
     if (isRetract) {
         return (
             <div className={`${prefixCls}-drawer-handle`} >
-                <MenuOutlined />
+                <MenuUnfoldOutlined />
             </div>
         )
     }
