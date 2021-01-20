@@ -9,6 +9,7 @@ export default async (config: Config) => {
     config.plugin('html-webpack-plugin').use(
         new HtmlWebpackPlugin({
             template: join(process.cwd(), '.doc', 'pages', 'document.ejs'),
+            publicPath: '/',
         }),
     );
 
