@@ -33,7 +33,7 @@
         "chokidar": "^3.5.1",
         "copy-webpack-plugin": "^7.0.0",
         "css-loader": "^5.0.1",
-        "fs-extra": "^9.0.1",
+        "fs-extra": "^9.1.0",
         "html-webpack-plugin": "^5.0.0-beta.4",
         "js-yaml": "^3.14.1",
         "less": "^4.1.0",
