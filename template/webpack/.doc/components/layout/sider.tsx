@@ -5,13 +5,17 @@ import {
     useLocation,
 } from 'react-router-dom';
 import { generate } from 'shortid';
+import { MenuOutlined } from '@ant-design/icons';
+
 
 import { prefixCls } from '../_util/common';
 import getRouteConfig from '../../config';
+import { useMediaQuery } from 'react-responsive';
 
 const SiderLi: React.FC<{title: string, path: string}> = ({ title, path }) => {
     const history = useHistory();
     const location = useLocation();
+
     return (
         <li
             className={
@@ -75,7 +79,24 @@ const Sider = () => {
             );
         }
     });
-    return <ul>{menuDom}</ul>;
+
+    const isRetract = useMediaQuery({
+        query: '(max-width: 992px)'
+    })
+
+    if (isRetract) {
+        return (
+            <div className={`${prefixCls}-drawer-handle`} >
+                <MenuOutlined />
+            </div>
+        )
+    }
+
+    return (
+        <div className={`${prefixCls}-body-sider`}>
+            <ul>{menuDom}</ul>;
+        </div>
+    )
 };
 
 export default Sider;

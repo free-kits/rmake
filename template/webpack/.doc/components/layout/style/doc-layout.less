@@ -3,6 +3,7 @@
 @prefix-cls-body: ~'@{prefix-cls}-body';
 @prefix-cls-header: ~'@{prefix-cls}-header';
 @prefix-cls-layout: ~'@{prefix-cls}-layout';
+@prefix-cls-drawer: ~'@{prefix-cls}-drawer';
 
 .@{prefix-cls-layout} {
     --header-height: 3.5rem;
@@ -133,4 +134,37 @@
     overflow-y: scroll;
     padding-left: 4em;
     padding-right: 4em;
+}
+
+.@{prefix-cls-drawer}-handle {
+    position: absolute;
+    top: 8rem;
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+    z-index: 0;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background: @background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+}
+
+@media screen {
+    @media (max-width: 992px) {
+        .@{prefix-cls-body}-content {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .@{prefix-cls-body}-home {
+            background-position: left 50% top -215px;
+            background-size: 400px;
+            > div {
+                width: 100%;
+                margin: 140px 1rem 0 1rem;
+            }
+        }
+    }
 }
