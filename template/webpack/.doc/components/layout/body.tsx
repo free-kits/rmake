@@ -114,9 +114,7 @@ export const useBodyLayout = () => {
     if (location.pathname !== '/') {
         return (
             <React.Suspense fallback={<LoadingFallback />}>
-                <div className={`${prefixCls}-body-sider`}>
-                    <Sider />
-                </div>
+                <Sider />
                 {routes}
             </React.Suspense>
         );
