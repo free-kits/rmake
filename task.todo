@@ -12,3 +12,5 @@ Projects:
         ✔ 拆分 Nav 头部组件 @done(21-01-19 09:39)
         ✔ 拆分 Body 内容组件 @done(21-01-19 09:46)
         ✔ 拆分 Side 右侧组件 @done(21-01-19 09:39)
+    markdown样式:
+        - 给markdown的表格新增样式信息
