@@ -6,14 +6,16 @@ import webpack from 'webpack';
 import { join } from 'path';
 
 export default async (config: Config) => {
+    const packages = await import(join(process.cwd(), 'package.json'));
+
     config.plugin('html-webpack-plugin').use(
         new HtmlWebpackPlugin({
             template: join(process.cwd(), '.doc', 'pages', 'document.ejs'),
             publicPath: '/',
+            meta: packages['@freekits/dt-doc'].meta || {},
         }),
     );
 
-    const packages = await import(join(process.cwd(), 'package.json'));
     const title = packages['@freekits/dt-doc'].title || packages.name;
     config.plugin('workbox-webpack-plugin').use(
         new WorkboxWebpackPlugin.GenerateSW({
