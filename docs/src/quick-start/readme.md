@@ -1,7 +1,9 @@
 <!--
 nav:
-    title: 指南
-title: 介绍
+    title: 文档
+group:
+    title: 入门
+title: 简介
 -->
 
 # 什么是 @freekits/doc ?
