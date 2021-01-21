@@ -1,7 +1,9 @@
 <!--
 nav:
-    title: 指南
-title: 项目结构
+    title: 文档
+group:
+    title: 入门
+title: 目录介绍
 -->
 
 # 结构介绍

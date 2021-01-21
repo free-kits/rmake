@@ -1,7 +1,9 @@
 <!--
 nav:
-    title: API
-title: 参数配置
+    title: 文档
+group:
+    title: 配置
+title: 项目配置
 -->
 
 # 描述

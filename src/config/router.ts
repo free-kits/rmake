@@ -94,7 +94,7 @@ export const findFileToNavs = () => {
         const yml = getMarkdownConfig(file);
         // 未找到yum 信息直接return
         if (!yml) return;
-        const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
+
         const pagePath = `/${
             /[0-9a-zA-Z/_\\-]+/g.exec(
                 file.replace(join(process.cwd(), 'src'), ''),
@@ -116,6 +116,9 @@ export const findFileToNavs = () => {
             path: realPath,
         };
 
+        const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
+
+        // 如果 nav中存在相同的数据
         if (filterNavs.length > 0) {
             // 如果数据结构中存在对应的nav信息，则直接添加
             const nav = filterNavs[0];
@@ -124,19 +127,28 @@ export const findFileToNavs = () => {
                 (menu) => instanceOfMenuGroup(menu) && menu.title === yml.group.title,
             );
 
-            if (yml.group && menusFilter.length > 0) {
-                if (
-                    instanceOfMenuGroup(menusFilter[0]) && menusFilter[0].pages
-                ) {
-                    // 如果存在group, 则添加到对应group的pages
-                    menusFilter[0].pages.push(page);
+            if (menusFilter.length > 0) {
+                if (yml.group) {
+                    if (
+                        // 如果存在group, 则添加到对应group的pages
+                        instanceOfMenuGroup(menusFilter[0]) && menusFilter[0].pages
+                    ) {
+                        menusFilter[0].pages.push(page);
+                    } else {
+                        // 否则没有group存在, 手动新建一个group
+                        nav.menus.push({
+                            title: yml.group.title,
+                            pages: [page],
+                        });
+                    }
                 } else {
-                    // 否则没有group存在, 手动新建一个group
-                    nav.menus.push({
-                        title: yml.group.title,
-                        pages: [page],
-                    });
+                    nav.menus.push(page);
                 }
+            } else if (yml.group) {
+                nav.menus.push({
+                    title: yml.group.title,
+                    pages: [page],
+                });
             } else {
                 nav.menus.push(page);
             }
@@ -148,6 +160,7 @@ export const findFileToNavs = () => {
                 menus: [],
             };
             if (yml.group) {
+                // 判断group 是否存在菜单中
                 addNav.menus.push({
                     title: yml.group.title,
                     order: yml.group.order || defaultOrder,
