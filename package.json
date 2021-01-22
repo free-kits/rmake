@@ -1,7 +1,7 @@
 {
-    "name": "@freekits/dt-doc",
+    "name": "@freekits/rmake",
     "version": "0.0.1-canary",
-    "description": "文档工具",
+    "description": "React 的构建工具",
     "scripts": {
         "start": "yarn build && cd ./docs && npm install && npm run start",
         "test": "jest",
@@ -13,7 +13,7 @@
         "build:site": "yarn build && cd ./docs && npm install && npm run build"
     },
     "bin": {
-        "freekits-doc": "./bin/main.js"
+        "rk-rmake": "./bin/main.js"
     },
     "files": [
         "bin"

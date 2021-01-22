@@ -34,7 +34,7 @@ export const devServer = async () => {
     const compiler = Webpack(config.toConfig());
 
     const packages = await import(join(process.cwd(), 'package.json'));
-    const devServerConfig = packages['@freekits/dt-doc'].devServer || {};
+    const devServerConfig = packages['@freekits/config'].devServer || {};
 
     const webpackDevServer = new WebpackDevServer(compiler, {
         stats: 'errors-only',
