@@ -32,6 +32,8 @@ title: 项目配置
 
 会生成一下的html标签
 
-`<meta name="key" content="value" />`
+```html
+<meta name="key" content="value" />
+```
 
 > JSON 的 key 表示 meta的 name信息，value表示content信息

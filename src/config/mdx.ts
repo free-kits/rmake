@@ -1,5 +1,7 @@
 import Config from 'webpack-chain';
 
+import remarkImages from 'remark-images';
+
 export default (config: Config) => {
     const targets = 'defaults';
     config.module
@@ -61,5 +63,10 @@ export default (config: Config) => {
         })
         .end()
         .use('babel-mdx/loader')
-        .loader('@mdx-js/loader');
+        .loader('@mdx-js/loader')
+        .options({
+            commonmark: true,
+            gfm: true,
+            remarkPlugins: [remarkImages],
+        });
 };
