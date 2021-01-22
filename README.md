@@ -16,9 +16,9 @@ Feature
 ## Thanks
 
 - The software is inspired by [https://github.com/umijs/dumi](https://github.com/umijs/dumi)
-- The page design style comes from[https://material.io/](https://material.io/)
+- The page design style comes from [https://material.io/](https://material.io/)
 - Homepage image from [https://web.dev/](https://web.dev/)
 
 ## License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffree-kits%2Fdt-doc?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Ffree-kits%2Frmake.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Ffree-kits%2Frmake?ref=badge_large)
