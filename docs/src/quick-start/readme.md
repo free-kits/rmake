@@ -6,11 +6,11 @@ group:
 title: 简介
 -->
 
-# 什么是 @freekits/doc ?
+# 什么是 @freekits/rmake ?
 
-dt-doc, 文档工具, 它主要用通过 `markdown` 文件来生成文档信息.
+**@freekits/rmake** 是用于做React的构建工具，用来构建文档。 或者构建项目
 
-> 这个站点就是基于 `@freekits/doc` 构建的
+> 这个站点就是基于 `@freekits/rmake` 构建的
 
 ## 特性
 
@@ -28,19 +28,19 @@ $ node -v
 v10.13.0
 ```
 
-### 安装 @freekits/doc
+### 安装 @freekits/rmake
 
 如果用户使用 npm 则执行
 
 ```shell
-npm install --save-dev @freekits/doc
+npm install --save-dev @freekits/rmake
 # or
-yarn add -D @freekits/doc
+yarn add -D @freekits/rmake
 ```
 
 ### 配置 packages.json 启动项目
 
-修改当前项目中的packages.json文件, 启动命令 `freekits-doc dev` 例如
+修改当前项目中的packages.json文件, 启动命令 `fk-rmake dev` 例如
 
 ```json
 {
@@ -50,16 +50,16 @@ yarn add -D @freekits/doc
     "license": "MIT",
     "private": true,
     "scripts": {
-        "start": "freekits-doc dev"
+        "start": "fk-rmake dev"
     },
     "devDependencies": {
-        "@freekits/doc": "file:../"
+        "@freekits/rmake": "file:../"
     },
     "dependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
     },
-    "@freekits/dt-doc": {
+    "@freekits/config": {
         "title": "Free Kits Doc"
     }
 }

@@ -8,7 +8,7 @@ title: 项目配置
 
 # 描述
 
-所有的配置，都在 `package.json` 的 `@freekits/dt-doc` 字段中进行设置, 以下是对应的字段信息。
+所有的配置，都在 `package.json` 的 `@freekits/config` 字段中进行设置, 以下是对应的字段信息。
 
 ## title
 
@@ -22,7 +22,7 @@ title: 项目配置
 
 ```json
 {
-    "@freekits/dt-doc": {
+    "@freekits/config": {
          "meta": {
              "key": "value"
          }
