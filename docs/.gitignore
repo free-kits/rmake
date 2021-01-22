@@ -107,8 +107,10 @@ dist
 .yarn
 .pnp.js
 .yarnrc.yml
+package-lock.json
 
 # vscode
 .vscode
 bin
 .doc
+
