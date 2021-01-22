@@ -7,7 +7,6 @@
 
 ![image](https://user-images.githubusercontent.com/24241052/105259633-2908e380-5bc7-11eb-871c-b31ee5ffe49b.png)
 
-
 Feature
 
 - 🌈 Out of the box.
