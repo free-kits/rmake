@@ -17,7 +17,7 @@
         "react-dom": "^17.0.1"
     },
     "@freekits/config": {
-        "title": "Free Kits Doc",
+        "title": "Free Kit RMake",
         "meta": {}
     }
 }
