@@ -1,10 +1,12 @@
 import React from 'react'
 
+import './styles/h2.less';
+
 export default ({
-    children, className
+    children
 }) => {
     return (
-        <h2 name={`#${encodeURIComponent(children)}`} className={className}>
+        <h2 id={children} className='md-h2'>
             {children}
         </h2>
     )

@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+
+import './styles/h1.less';
 
 export default ({
-    children, className
+    children
 }) => {
     return (
-        <h1 name={`#${children}`} className={className}>
+        <h1 id={children} className="md-h1">
             {children}
         </h1>
     )

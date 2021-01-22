@@ -3,6 +3,8 @@ Projects:
     - 可使用CLI命令来创建模板项目
     - 添加nav的排序功能
     - 添加side的排序功能
+    - 修改link的样式采用 remark-autolink-headings
+    ✔ 添加对图片的简短支持 @done(21-01-22 10:20)
     ✔ 添加离线缓存 @done(21-01-19 11:28)
     响应式布局:
         - 适应手机端

@@ -5,7 +5,7 @@ export default ({
     children
 }) => {
     return (
-        <blockquote className={'md-blockquote'}>
+        <blockquote className='md-blockquote'>
             {children}
         </blockquote>
     )
