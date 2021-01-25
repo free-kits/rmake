@@ -783,6 +783,13 @@ Object {
                 ],
                 "store": Map {
                   "loader" => "@mdx-js/loader",
+                  "options" => Object {
+                    "commonmark": true,
+                    "gfm": true,
+                    "remarkPlugins": Array [
+                      [Function],
+                    ],
+                  },
                 },
               },
             },
