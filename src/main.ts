@@ -17,7 +17,7 @@ if (process.argv.length === 2) {
             type: 'input',
             name: 'name',
             message: 'Package Name',
-            validate: (name) => name && validateNpmName(name).validForNewPackages
+            validate: (name) => name && validateNpmName(name).validForNewPackages,
         }, {
             type: 'input',
             name: 'title',
