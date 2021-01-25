@@ -3,6 +3,7 @@ nav:
     title: 文档
 group:
     title: 配置
+    order: 100
 title: 项目配置
 -->
 

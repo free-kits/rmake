@@ -12,7 +12,7 @@ interface Page {
     // 标题
     title: string;
     // 序号
-    order: number;
+    order?: number;
     // 当前组件信息
     component: string;
     // 组件访问路径
@@ -28,7 +28,7 @@ interface Nav {
     // 标题
     title: string;
     // 序号
-    order: number;
+    order?: number;
     // 当前节点下的菜单信息
     menus: (MenuGroup | Page)[];
 }
@@ -88,7 +88,6 @@ const getMarkdownConfig = (file: string) => {
 // 找到当前的路由信息，并生成navs信息
 export const findFileToNavs = () => {
     const files = findFile();
-    const defaultOrder = 999;
     const navs: Nav[] = [];
     files.forEach((file) => {
         const yml = getMarkdownConfig(file);
@@ -108,12 +107,12 @@ export const findFileToNavs = () => {
         }
         const page: Page = {
             title: yml.title,
-            order: defaultOrder,
             component: `/*@freekits/doc import*/..${file.replace(
                 process.cwd(),
                 '',
             )}/*@freekits/doc import-end*/`,
             path: realPath,
+            order: yml.order,
         };
 
         const filterNavs = navs.filter((ele) => ele.title === yml.nav.title);
@@ -156,14 +155,14 @@ export const findFileToNavs = () => {
             // 不存在对应的nav信息，则添加
             const addNav: Nav = {
                 title: yml.nav.title,
-                order: yml.nav.order || defaultOrder,
+                order: yml.nav.order,
                 menus: [],
             };
             if (yml.group) {
                 // 判断group 是否存在菜单中
                 addNav.menus.push({
                     title: yml.group.title,
-                    order: yml.group.order || defaultOrder,
+                    order: yml.group.order,
                     pages: [page],
                 });
             } else {

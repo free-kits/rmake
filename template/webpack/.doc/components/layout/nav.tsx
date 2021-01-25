@@ -5,6 +5,7 @@ import {
 import { generate } from 'shortid';
 
 import getRouteConfig from '../../config';
+import { sort } from '../_util/common';
 
 const NavLi: React.FC<{nav: any}> = ({ nav }) => {
     const history = useHistory();
@@ -34,9 +35,9 @@ const NavLi: React.FC<{nav: any}> = ({ nav }) => {
  */
 export const Nav = () => {
     const navs = [];
-    getRouteConfig().forEach((nav) => {
+    const sortNav = sort(getRouteConfig());
+    sortNav.forEach((nav) => {
         navs.push(<NavLi nav={nav} key={generate()} />);
     });
-
     return <ul>{navs}</ul>;
 };

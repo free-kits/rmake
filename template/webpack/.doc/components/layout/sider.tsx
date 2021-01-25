@@ -30,6 +30,20 @@ const SiderLi: React.FC<{title: string, path: string}> = ({ title, path }) => {
     );
 };
 
+const sort = (data) => {
+    return data?.sort((current, next) => {
+        const currentOrder = current.order || 0;
+        const nextOrder = next.order || 0;
+        if (currentOrder > nextOrder) {
+            return 1;
+        }
+        if (currentOrder === nextOrder) {
+            return 0;
+        }
+        return -1;
+    })
+}
+
 /**
  * 转换当前的导航信息
  */
@@ -38,9 +52,11 @@ const Sider = () => {
     let currentNav;
     getRouteConfig().forEach((nav) => {
         const pathname = location.pathname;
-        nav.menus?.some((menu) => {
+        const sortMenus = sort(nav.menus);
+        sortMenus?.some((menu) => {
             if (menu.pages) {
-                return menu.pages.some((page) => {
+                const menuSort = sort(menu.pages);
+                return menuSort.some((page) => {
                     if (page.path === pathname) {
                         currentNav = nav;
                         return true;
