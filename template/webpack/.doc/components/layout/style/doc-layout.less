@@ -5,6 +5,8 @@
 @prefix-cls-layout: ~'@{prefix-cls}-layout';
 @prefix-cls-drawer: ~'@{prefix-cls}-drawer';
 
+@sider-width: 14rem;
+
 .@{prefix-cls-layout} {
     --header-height: 3.5rem;
     height: 100%;
@@ -101,7 +103,7 @@
 }
 
 .@{prefix-cls-body}-sider {
-    width: 14rem;
+    width: @sider-width;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     > ul {
         margin-top: 2em;
@@ -128,6 +130,14 @@
     }
 }
 
+.@{prefix-cls-body}-float-sider {
+    position: absolute;
+    width: calc(@sider-width - 2rem);
+    height: calc(100% - var(--header-height));
+    background-color: @background-color;
+}
+
+
 .@{prefix-cls-body}-content {
     flex: 1;
     scroll-behavior: smooth;
@@ -152,6 +162,8 @@
     border-radius: 2px;
     opacity: .6;
 }
+
+
 
 @media screen {
     @media (max-width: 992px) {
