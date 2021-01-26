@@ -10,13 +10,13 @@
         "build": "rk-rmake build"
     },
     "devDependencies": {
-        "@freekits/rmake": "file:../"
+        "@free-kits/rmake": "file:../"
     },
     "dependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
     },
-    "@freekits/config": {
+    "@free-kits/config": {
         "title": "Free Kit RMake",
         "meta": {}
     }

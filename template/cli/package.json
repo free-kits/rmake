@@ -9,13 +9,13 @@
         "build": "rk-rmake build"
     },
     "devDependencies": {
-        "@freekits/rmake": "^0.0.1-canary"
+        "@free-kits/rmake": "^0.0.1-canary"
     },
     "dependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
     },
-    "@freekits/config": {
+    "@free-kits/config": {
         "title": "{{ title }}"
     }
 }

@@ -6,11 +6,11 @@ group:
 title: 简介
 -->
 
-# 什么是 @freekits/rmake ?
+# 什么是 @free-kits/rmake ?
 
-**@freekits/rmake** 是用于做React的构建工具，用来构建文档。 或者构建项目
+**@free-kits/rmake** 是用于做React的构建工具，用来构建文档。 或者构建项目
 
-> 这个站点就是基于 `@freekits/rmake` 构建的
+> 这个站点就是基于 `@free-kits/rmake` 构建的
 
 ## 特性
 
@@ -28,14 +28,14 @@ $ node -v
 v10.13.0
 ```
 
-### 安装 @freekits/rmake
+### 安装 @free-kits/rmake
 
 如果用户使用 npm 则执行
 
 ```shell
-npm install --save-dev @freekits/rmake
+npm install --save-dev @free-kits/rmake
 # or
-yarn add -D @freekits/rmake
+yarn add -D @free-kits/rmake
 ```
 
 ### 配置 packages.json 启动项目
@@ -53,13 +53,13 @@ yarn add -D @freekits/rmake
         "start": "fk-rmake dev"
     },
     "devDependencies": {
-        "@freekits/rmake": "file:../"
+        "@free-kits/rmake": "file:../"
     },
     "dependencies": {
         "react": "^17.0.1",
         "react-dom": "^17.0.1"
     },
-    "@freekits/config": {
+    "@free-kits/config": {
         "title": "Free Kits Doc"
     }
 }
