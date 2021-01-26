@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
     useHistory,
@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { generate } from 'shortid';
 import { MenuUnfoldOutlined } from '@ant-design/icons';
+import clsx from 'clsx';
 
 
 import { prefixCls } from '../_util/common';
@@ -98,13 +99,39 @@ const Sider = () => {
 
     const isRetract = useMediaQuery({
         query: '(max-width: 992px)'
-    })
+    });
+
+    const [isHide, setHide] = useState(true);
 
     if (isRetract) {
-        return (
-            <div className={`${prefixCls}-drawer-handle`} >
-                <MenuUnfoldOutlined />
+        const floatSider= (
+            <div
+                tabIndex={0}
+                onBlur={() => {
+                    setHide(true);
+                }}
+                className={clsx({
+                    [`${prefixCls}-body-float-sider`]: true,
+                    [`${prefixCls}-body-sider`]: true
+                })}
+            >
+                <ul>{menuDom}</ul>;
             </div>
+        )
+        return (
+            <>
+                {
+                    !isHide ? floatSider : null
+                }
+                <div
+                    className={`${prefixCls}-drawer-handle`}
+                    onClick={() => {
+                        setHide(!isHide)
+                    }}
+                >
+                    <MenuUnfoldOutlined />
+                </div>
+            </>
         )
     }
 
