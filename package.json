@@ -1,5 +1,5 @@
 {
-    "name": "@free-kits/rmake",
+    "name": "@freekits/rmake",
     "version": "0.0.1-canary",
     "description": "React 的构建工具",
     "scripts": {
