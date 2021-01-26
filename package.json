@@ -1,5 +1,5 @@
 {
-    "name": "@freekits/rmake",
+    "name": "@free-kits/rmake",
     "version": "0.0.1-canary",
     "description": "React 的构建工具",
     "scripts": {
@@ -9,6 +9,7 @@
         "eslint": "eslint src/**/* --ext '.js,.jsx,.ts,.tsx'",
         "mdlint": "markdownlint **/*.md",
         "prettier": "prettier --write .",
+        "publish:latest": "npm publish --access public",
         "build": "tsc",
         "build:site": "yarn build && cd ./docs && npm install && npm run build"
     },
