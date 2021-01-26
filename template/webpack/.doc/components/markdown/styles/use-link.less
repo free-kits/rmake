@@ -1,0 +1,24 @@
+.md-left-link {
+    display: inline-block;
+    margin-left: -23px;
+}
+
+.mixin-link-style {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    &:hover {
+        > a {
+            > .md-left-link {
+                opacity: .6;
+            }
+        }
+    }
+    > a {
+        > .md-left-link {
+            cursor: pointer;
+            font-size: 14px;
+            padding-right: 5px;
+            opacity: 0;
+        }
+    }
+}
