@@ -2,7 +2,7 @@
 import packages from '../../../package.json';
 import getRouteConfig from '../../config';
 
-const getConfig = () => packages['@freekits/config'];
+const getConfig = () => packages['@free-kits/config'];
 
 /**
  * 获取项目的title信息

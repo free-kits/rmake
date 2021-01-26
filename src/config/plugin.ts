@@ -12,11 +12,11 @@ export default async (config: Config) => {
         new HtmlWebpackPlugin({
             template: join(process.cwd(), '.doc', 'pages', 'document.ejs'),
             publicPath: '/',
-            meta: packages['@freekits/config'].meta || {},
+            meta: packages['@free-kits/config'].meta || {},
         }),
     );
 
-    const title = packages['@freekits/config'].title || packages.name;
+    const title = packages['@free-kits/config'].title || packages.name;
     config.plugin('workbox-webpack-plugin').use(
         new WorkboxWebpackPlugin.GenerateSW({
             clientsClaim: true,

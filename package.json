@@ -1,6 +1,6 @@
 {
-    "name": "@freekits/rmake",
-    "version": "0.0.1-canary",
+    "name": "@free-kits/rmake",
+    "version": "0.0.2-canary",
     "description": "React 的构建工具",
     "scripts": {
         "start": "yarn build && cd ./docs && npm install && npm run start",

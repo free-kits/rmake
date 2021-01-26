@@ -107,10 +107,10 @@ export const findFileToNavs = () => {
         }
         const page: Page = {
             title: yml.title,
-            component: `/*@freekits/doc import*/..${file.replace(
+            component: `/*@free-kits/component import*/..${file.replace(
                 process.cwd(),
                 '',
-            )}/*@freekits/doc import-end*/`,
+            )}/*@free-kits/component import-end*/`,
             path: realPath,
             order: yml.order,
         };
@@ -181,10 +181,10 @@ export const createRouteConfig = () => {
     const code = JSON.stringify(navs)
         .replace(/"/g, "'")
         .replace(
-            /'\/\*@freekits\/doc\s+import\*\//g,
+            /'\/\*@free-kits\/component\s+import\*\//g,
             "React.lazy(() => import('",
         )
-        .replace(/\/\*@freekits\/doc\s+import-end\*\/'/g, "'))")
+        .replace(/\/\*@free-kits\/component\s+import-end\*\/'/g, "'))")
         .replace(/\s*\\\\/g, '/');
     writeFileSync(
         join(process.cwd(), '.doc', 'config.ts'),

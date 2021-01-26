@@ -9,7 +9,7 @@ title: 项目配置
 
 # 描述
 
-所有的配置，都在 `package.json` 的 `@freekits/config` 字段中进行设置, 以下是对应的字段信息。
+所有的配置，都在 `package.json` 的 `@free-kits/config` 字段中进行设置, 以下是对应的字段信息。
 
 ## title
 
@@ -23,7 +23,7 @@ title: 项目配置
 
 ```json
 {
-    "@freekits/config": {
+    "@free-kits/config": {
          "meta": {
              "key": "value"
          }
