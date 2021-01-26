@@ -1,11 +1,11 @@
 import React from 'react'
 import { useLinkTitle } from './useLink';
-import './styles/h2.less';
+import './styles/h3.less';
 
 export default ({
     children
 }) => useLinkTitle(
-    <h2 id={children} className='md-h2'>
+    <h3 id={children} className='md-h3'>
         {children}
-    </h2>
+    </h3>
 )
