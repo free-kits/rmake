@@ -19,7 +19,6 @@ export const getTitle = () => {
 export const getDescription = () => {
     const config = getConfig();
     if (config.description) return config.description;
-    console.log(packages)
     return packages.description;
 }
 
