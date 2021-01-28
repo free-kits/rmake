@@ -6,6 +6,12 @@ import H5 from './h5';
 import Code from './code';
 import Blockquote from './blockquote';
 import InlineCode from './inline-code';
+import Table from './table';
+import Thead from './thead';
+import Tbody from './tbody';
+import TD from './td';
+import TH from './th';
+import TR from './tr';
 
 export const components = {
     h1: H1,
@@ -16,4 +22,10 @@ export const components = {
     code: Code,
     blockquote: Blockquote,
     inlineCode: InlineCode,
+    table: Table,
+    thead: Thead,
+    tbody: Tbody,
+    td: TD,
+    th: TH,
+    tr: TR
 }
