@@ -17,8 +17,9 @@ Projects:
             ✔ 拆分 Side 右侧组件 @done(21-01-19 09:39)
         markdown样式:
             ✔ 给markdown的表格新增样式信息 @done(21-01-28 09:57)
-            - 给React live 添加样式
+            ✔ 给React live 添加样式 @done(21-01-29 10:20)
         - 支持导出为pdf文件
+        - 添加数学块的支持
     React App 项目:
         - 预设 typescript 语言
         - 预设 less 支持

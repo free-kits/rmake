@@ -49,3 +49,11 @@ const Button = () => {
 }
 render(<Button />)
 ```
+
+$$
+a[i+1]=
+\begin{cases}
+a[i]+1&S[i]=\text{'a'}\\
+a[i]& S[i]\neq\text{'a'}
+\end{cases}
+$$

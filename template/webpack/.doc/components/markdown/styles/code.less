@@ -1,14 +1,36 @@
-
 .code-styles {
     overflow-x: scroll;
-    border-radius: 5px;
     box-shadow: 0px 5px 5px rgba(0, 0, 0, 1), 5px 0px 5px rgba(0, 0, 0, 1);
 }
+
 .prism-code {
     padding: .8rem .8rem 0rem .8rem;
     .code-styles();
 }
+
 .live-editor {
-    margin-top: 1rem;
-    .code-styles();
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 1rem;
 }
+
+.live-preview {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+}
+
+.live-tools {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
+    > a {
+        cursor: pointer;
+        height: 15px;
+    }
+}
+
