@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react';
-import { TagOutlined } from '@ant-design/icons';
+import { BsLink45Deg } from 'react-icons/bs';
 
 import './styles/use-link.less';
 
@@ -9,7 +9,7 @@ export const useLinkTitle = (children: ReactElement) => {
         children: (
             <>
                 <a href={`#${encodeURIComponent(children.props.id)}`}>
-                    <TagOutlined className='md-left-link'/>
+                    <BsLink45Deg className='md-left-link'/>
                 </a>
                 {children.props.children}
             </>

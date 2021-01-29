@@ -23,7 +23,6 @@
     "author": "zhangj <zhangjin0908@hotmail.com>",
     "license": "MIT",
     "dependencies": {
-        "@ant-design/icons": "^4.4.0",
         "@babel/core": "^7.12.10",
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-react": "^7.12.10",
@@ -46,6 +45,7 @@
         "prism-react-renderer": "^1.1.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
+        "react-icons": "^4.1.0",
         "react-live": "^2.2.3",
         "react-responsive": "^8.2.0",
         "react-router-dom": "^5.2.0",

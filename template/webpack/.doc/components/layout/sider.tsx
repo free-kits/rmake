@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
     useHistory,
     useLocation,
 } from 'react-router-dom';
 import { generate } from 'shortid';
-import { MenuUnfoldOutlined } from '@ant-design/icons';
-import clsx from 'clsx';
+import { BsJustify } from "react-icons/bs"
 
-
-import { prefixCls } from '../_util/common';
+import { prefixCls, sort } from '../_util/common';
 import getRouteConfig from '../../config';
 import { useMediaQuery } from 'react-responsive';
 
@@ -30,20 +28,6 @@ const SiderLi: React.FC<{title: string, path: string}> = ({ title, path }) => {
         </li>
     );
 };
-
-const sort = (data) => {
-    return data?.sort((current, next) => {
-        const currentOrder = current.order || 0;
-        const nextOrder = next.order || 0;
-        if (currentOrder > nextOrder) {
-            return 1;
-        }
-        if (currentOrder === nextOrder) {
-            return 0;
-        }
-        return -1;
-    })
-}
 
 /**
  * 转换当前的导航信息
@@ -99,39 +83,13 @@ const Sider = () => {
 
     const isRetract = useMediaQuery({
         query: '(max-width: 992px)'
-    });
-
-    const [isHide, setHide] = useState(true);
+    })
 
     if (isRetract) {
-        const floatSider= (
-            <div
-                tabIndex={0}
-                onBlur={() => {
-                    setHide(true);
-                }}
-                className={clsx({
-                    [`${prefixCls}-body-float-sider`]: true,
-                    [`${prefixCls}-body-sider`]: true
-                })}
-            >
-                <ul>{menuDom}</ul>;
-            </div>
-        )
         return (
-            <>
-                {
-                    !isHide ? floatSider : null
-                }
-                <div
-                    className={`${prefixCls}-drawer-handle`}
-                    onClick={() => {
-                        setHide(!isHide)
-                    }}
-                >
-                    <MenuUnfoldOutlined />
-                </div>
-            </>
+            <div className={`${prefixCls}-drawer-handle`} >
+                <BsJustify />
+            </div>
         )
     }
 

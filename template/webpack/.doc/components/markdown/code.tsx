@@ -1,22 +1,34 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
+import { BsCodeSlash } from 'react-icons/bs';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 import './styles/code.less';
 
+const Code = ({
+    code
+}) => {
+    return (
+        <LiveProvider code={code.trim()} noInline theme={theme}>
+            <div className='live-preview'>
+                <LivePreview />
+            </div>
+            <div className='live-tools'>
+                <a><BsCodeSlash /></a>
+            </div>
+            <div className='live-editor'>
+                <LiveEditor />
+                <LiveError />
+            </div>
+        </LiveProvider>
+    )
+}
+
 export default ({ children, className, live }) => {
     const language = className?.replace(/language-/, '') || 'shell';
     if (live) {
-        return (
-            <div style={{ marginTop: '40px' }}>
-                <LiveProvider code={children.trim()} noInline theme={theme}>
-                    <LivePreview />
-                    <LiveEditor className='live-editor' />
-                    <LiveError />
-                </LiveProvider>
-            </div>
-        );
+        return <Code code={children}/>
     }
 
     return (
