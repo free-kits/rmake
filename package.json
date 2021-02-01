@@ -40,7 +40,7 @@
         "html-webpack-plugin": "^5.0.0-beta.4",
         "inquirer": "^7.3.3",
         "js-yaml": "^3.14.1",
-        "less": "^4.1.0",
+        "less": "^4.1.1",
         "less-loader": "^7.3.0",
         "log4js": "^6.3.0",
         "prism-react-renderer": "^1.1.1",
