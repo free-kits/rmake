@@ -14,9 +14,6 @@ const Code = ({
             <div className='live-preview'>
                 <LivePreview />
             </div>
-            <div className='live-tools'>
-                <a><BsCodeSlash /></a>
-            </div>
             <div className='live-editor'>
                 <LiveEditor />
                 <LiveError />
