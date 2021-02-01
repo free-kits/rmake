@@ -4,7 +4,6 @@ import {
     useHistory,
 } from 'react-router-dom';
 
-
 import { prefixCls } from '../_util/common';
 import { Nav } from './nav';
 import { getTitle } from '../_util/config';

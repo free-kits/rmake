@@ -20,9 +20,12 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/service-worker.js').then(() => {
             getAllPath().forEach((path) => {
-                const handler = createHandlerBoundToURL(path);
-                const navigationRoute = new NavigationRoute(handler);
-                registerRoute(navigationRoute);
+                try {
+                    const handler = createHandlerBoundToURL(path);
+                    const navigationRoute = new NavigationRoute(handler);
+                    registerRoute(navigationRoute);
+                } catch (error) {
+                }
             })
         });
     });

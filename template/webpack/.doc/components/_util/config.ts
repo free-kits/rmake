@@ -13,6 +13,9 @@ export const getTitle = () => {
     return packages.name;
 }
 
+// 获取资源信息
+export const getRepository = () => packages.repository
+
 /**
  * 获取项目的描述信息
  */

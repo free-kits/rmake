@@ -17,6 +17,7 @@ export default async (config: Config) => {
     );
 
     const title = packages['@free-kits/config'].title || packages.name;
+
     config.plugin('workbox-webpack-plugin').use(
         new WorkboxWebpackPlugin.GenerateSW({
             clientsClaim: true,
@@ -25,7 +26,7 @@ export default async (config: Config) => {
     );
     config.plugin('define-plugin').use(
         new webpack.DefinePlugin({
-            title: JSON.stringify(title),
+            DEFINE_TITLE: JSON.stringify(title),
         }),
     );
 

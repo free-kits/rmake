@@ -10,7 +10,7 @@ import { MDXProvider } from '@mdx-js/react';
 
 import { getTitle, getDescription } from '../_util/config';
 import { components } from '../markdown';
-import { prefixCls } from '../_util/common';
+import { prefixCls, sort } from '../_util/common';
 import getRouteConfig from '../../config';
 
 const Sider = React.lazy(() => import('./sider'));
@@ -77,7 +77,7 @@ export const useBodyLayout = () => {
                     <button
                         onClick={() => {
                             const configs = getRouteConfig();
-                            configs?.[0].menus?.some((menu) => {
+                            sort(configs?.[0].menus)?.some((menu) => {
                                 if (menu.pages) {
                                     history.push(menu.pages[0].path);
                                     return true;

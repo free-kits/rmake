@@ -1,7 +1,6 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
-import { BsCodeSlash } from 'react-icons/bs';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
 import './styles/code.less';

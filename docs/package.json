@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "repository": "https://github.com/free-kits/rmake.git",
     "description": "React组件markdown文档管理工具, 采用约定的方式编写组件文档信息。",
     "private": true,
     "scripts": {
