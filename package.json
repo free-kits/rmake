@@ -1,7 +1,7 @@
 {
     "name": "@free-kits/rmake",
-    "version": "0.0.2-canary",
-    "description": "React 的构建工具",
+    "version": "0.0.4-canary",
+    "description": "Set up a modern web app by running one command.",
     "scripts": {
         "start": "yarn build && cd ./docs && npm install && npm run start",
         "test": "jest",
@@ -11,13 +11,15 @@
         "prettier": "prettier --write .",
         "publish:latest": "npm publish --access public",
         "build": "tsc",
-        "build:site": "yarn build && cd ./docs && npm install && npm run build"
+        "build:site": "yarn build && cd ./docs && npm install && npm run build",
+        "prepublishOnly": "npm run test && npm run eslint && npm run build"
     },
     "bin": {
         "rk-rmake": "./bin/main.js"
     },
     "files": [
-        "bin"
+        "bin",
+        "template"
     ],
     "repository": "https://github.com/free-kits/rmake.git",
     "author": "zhangj <zhangjin0908@hotmail.com>",
