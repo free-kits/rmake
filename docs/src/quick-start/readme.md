@@ -28,9 +28,23 @@ $ node -v
 v10.13.0
 ```
 
+## 使用脚手架
+
+```shell
+yarn create @free-kits/rmake
+# or npm
+npx @free-kits/rmake
+```
+
+> 按照问答的命令行方式进行预设项目的配置
+
+## 手动构建项目
+
 ### 安装 @free-kits/rmake
 
-如果用户使用 npm 则执行
+执行 `npm init` 或者 `yarn init` 创建项目
+
+安装依赖
 
 ```shell
 npm install --save-dev @free-kits/rmake

@@ -42,18 +42,3 @@ title: 项目配置
 ```
 
 > JSON 的 key 表示 meta的 name信息，value表示content信息
-
-```jsx live=true
-const Button = () => {
-    return <button >点击查询 </button>
-}
-render(<Button />)
-```
-
-$$
-a[i+1]=
-\begin{cases}
-a[i]+1&S[i]=\text{'a'}\\
-a[i]& S[i]\neq\text{'a'}
-\end{cases}
-$$
