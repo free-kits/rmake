@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
     useHistory,
     useLocation,
 } from 'react-router-dom';
 import { generate } from 'shortid';
-import { BsJustify } from "react-icons/bs"
+import { BsJustify } from "react-icons/bs";
+import clsx from 'clsx';
 
 import { prefixCls, sort } from '../_util/common';
 import getRouteConfig from '../../config';
@@ -81,14 +82,42 @@ const Sider = () => {
         }
     });
 
+    const [isHide, setHide] = useState(true)
     const isRetract = useMediaQuery({
         query: '(max-width: 992px)'
     })
-
+    if (isRetract) {
+        if (!isHide) {
+            return (
+                <div
+                    tabIndex={0}
+                    onBlur={() => {
+                        setHide(true);
+                    }}
+                    className={clsx({
+                        [`${prefixCls}-body-float-sider`]: true,
+                        [`${prefixCls}-body-sider`]: true
+                    })}
+                >
+                    <ul>{menuDom}</ul>;
+                </div>
+            )
+        }
+        return (
+            <div
+                className={`${prefixCls}-drawer-handle`}
+                onClick={() => {
+                    setHide(!isHide)
+                }}
+            >
+                <BsJustify />
+            </div>
+        )
+    }
     if (isRetract) {
         return (
             <div className={`${prefixCls}-drawer-handle`} >
-                <BsJustify />
+
             </div>
         )
     }
