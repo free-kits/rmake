@@ -1,6 +1,6 @@
 import Config from 'webpack-chain';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-// import CopyPlugin from 'copy-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 import webpack from 'webpack';
 import { join } from 'path';
@@ -30,14 +30,14 @@ export default async (config: Config) => {
         }),
     );
 
-    // config.plugin('copy-webpack-plugin').use(
-    //     new CopyPlugin({
-    //         patterns: [
-    //             {
-    //                 from: 'assets',
-    //                 to: 'assets',
-    //             },
-    //         ],
-    //     }),
-    // );
+    config.plugin('copy-webpack-plugin').use(
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: 'assets',
+                    to: 'assets',
+                },
+            ],
+        }),
+    );
 };
