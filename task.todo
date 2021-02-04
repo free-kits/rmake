@@ -20,7 +20,7 @@ Projects:
             ✔ 给markdown的表格新增样式信息 @done(21-01-28 09:57)
             ✔ 给React live 添加样式 @done(21-01-29 10:20)
         - 支持构建组件库
-        - 添加文档搜索功能
+        - 添加文档的全文检索
     React App 项目:
         - 预设 typescript 语言
         - 预设 less 支持
