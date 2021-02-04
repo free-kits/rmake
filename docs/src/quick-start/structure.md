@@ -16,6 +16,7 @@ title: 目录介绍
 
 ```shell
 project
+|- assets # 静态资源文件
 ├─.doc # 内部生成的代码，每次更新都会重新生成对应的信息
 |   |-components
 |   |-pages
