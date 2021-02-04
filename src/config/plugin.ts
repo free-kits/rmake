@@ -4,6 +4,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import WorkboxWebpackPlugin from 'workbox-webpack-plugin';
 import webpack from 'webpack';
 import { join } from 'path';
+import { existsSync } from 'fs-extra';
 
 export default async (config: Config) => {
     const packages = await import(join(process.cwd(), 'package.json'));
@@ -30,14 +31,16 @@ export default async (config: Config) => {
         }),
     );
 
-    config.plugin('copy-webpack-plugin').use(
-        new CopyPlugin({
-            patterns: [
-                {
-                    from: 'assets',
-                    to: 'assets',
-                },
-            ],
-        }),
-    );
+    if (existsSync(join(process.cwd(), 'assets'))) {
+        config.plugin('copy-webpack-plugin').use(
+            new CopyPlugin({
+                patterns: [
+                    {
+                        from: 'assets',
+                        to: 'assets',
+                    },
+                ],
+            }),
+        );
+    }
 };
