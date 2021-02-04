@@ -11,7 +11,7 @@
         "prettier": "prettier --write .",
         "publish:latest": "npm publish --access public",
         "build": "tsc",
-        "build:site": "yarn build && cd ./docs && npm install && npm run build",
+        "build:site": "yarn build && cd ./docs && npm install && npm run build && cp -r ./docs/dist ./dist",
         "prepublishOnly": "npm run test && npm run eslint && npm run build"
     },
     "bin": {
