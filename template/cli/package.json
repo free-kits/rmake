@@ -9,7 +9,7 @@
         "build": "rk-rmake build"
     },
     "devDependencies": {
-        "@free-kits/rmake": "^0.0.1-canary"
+        "@free-kits/rmake": "^0.2.0-canary"
     },
     "dependencies": {
         "react": "^17.0.1",
