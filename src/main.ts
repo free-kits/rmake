@@ -4,7 +4,12 @@ import chokidar from 'chokidar';
 import { join } from 'path';
 import inquirer from 'inquirer';
 import handlebars from 'handlebars';
-import { copySync, readFileSync, writeFileSync } from 'fs-extra';
+import {
+    copySync,
+    readFileSync,
+    writeFileSync,
+    existsSync,
+} from 'fs-extra';
 
 import validateNpmName from 'validate-npm-package-name';
 import { compiler, devServer, copyFileDoc } from './config/server';
@@ -60,7 +65,12 @@ if (
 const param = process.argv[2];
 
 (async () => {
-// 启动项目开发
+    // 启动项目开发
+    const liveScope = join(process.cwd(), 'src', 'live-scope.ts');
+    if (!existsSync(liveScope)) {
+        writeFileSync(liveScope, 'export default {};\n');
+    }
+
     if (param === 'dev') {
         chokidar.watch(join(__dirname, '..', 'template', 'webpack', '.doc')).on('all', (eventName) => {
             if (eventName === 'change') {
