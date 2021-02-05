@@ -3,13 +3,15 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 
+import liveScope from '../../../src/live-scope';
+
 import './styles/code.less';
 
 const Code = ({
     code
 }) => {
     return (
-        <LiveProvider code={code.trim()} noInline theme={theme}>
+        <LiveProvider code={code.trim()} noInline theme={theme} scope={liveScope}>
             <div className='live-preview'>
                 <LivePreview />
             </div>
