@@ -1,6 +1,6 @@
 {
     "name": "@free-kits/rmake",
-    "version": "0.1.0-canary",
+    "version": "0.2.0-canary",
     "description": "Set up a modern web app by running one command.",
     "scripts": {
         "start": "yarn build && cd ./docs && npm install && npm run start",
