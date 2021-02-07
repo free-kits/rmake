@@ -12,7 +12,13 @@ import {
 } from 'fs-extra';
 
 import validateNpmName from 'validate-npm-package-name';
-import { compiler, devServer, copyFileDoc } from './config/server';
+import {
+    compilerDoc,
+    devServerDoc,
+    copyFileDoc,
+    devServerElectron,
+    compilerElectron,
+} from './config/server';
 
 // 创建项目
 if (process.argv.length === 2) {
@@ -55,7 +61,14 @@ if (process.argv.length === 2) {
 // 校验当前的参数是否正确
 if (
     process.argv.length !== 3
-    && (process.argv[2] === 'dev' || process.argv[2] === 'build')
+    && (
+        [
+            'dev-doc',
+            'build-doc',
+            'dev-electron',
+            'build-electron',
+        ].includes(process.argv[2])
+    )
 ) {
     throw new Error(
         `Incorrect parameter format. ${JSON.stringify(process.argv)}`,
@@ -71,14 +84,20 @@ const param = process.argv[2];
         writeFileSync(liveScope, 'export default {};\n');
     }
 
-    if (param === 'dev') {
+    if (param === 'dev-doc') {
         chokidar.watch(join(__dirname, '..', 'template', 'webpack', '.doc')).on('all', (eventName) => {
             if (eventName === 'change') {
                 copyFileDoc();
             }
         });
-        await devServer();
-    } else if (param === 'build') {
-        await compiler();
+        await devServerDoc();
+    } else if (param === 'build-doc') {
+        await compilerDoc();
+    }
+
+    if (param === 'dev-electron') {
+        await devServerElectron();
+    } else if (param === 'build-electron') {
+        await compilerElectron();
     }
 })();

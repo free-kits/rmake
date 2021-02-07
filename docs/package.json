@@ -7,8 +7,8 @@
     "description": "React组件markdown文档管理工具, 采用约定的方式编写组件文档信息。",
     "private": true,
     "scripts": {
-        "start": "rk-rmake dev",
-        "build": "rk-rmake build"
+        "start": "rk-rmake dev-doc",
+        "build": "rk-rmake build-doc"
     },
     "devDependencies": {
         "@free-kits/rmake": "file:../"

@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import { join } from 'path';
 import { existsSync } from 'fs-extra';
 
-export default async (config: Config) => {
+export default async (config: Config, ignorePlugin: string[]) => {
     const packages = await import(join(process.cwd(), 'package.json'));
 
     config.plugin('html-webpack-plugin').use(
@@ -19,12 +19,14 @@ export default async (config: Config) => {
 
     const title = packages['@free-kits/config'].title || packages.name;
 
-    config.plugin('workbox-webpack-plugin').use(
-        new WorkboxWebpackPlugin.GenerateSW({
-            clientsClaim: true,
-            skipWaiting: true,
-        }),
-    );
+    if (!ignorePlugin.includes('workbox')) {
+        config.plugin('workbox-webpack-plugin').use(
+            new WorkboxWebpackPlugin.GenerateSW({
+                clientsClaim: true,
+                skipWaiting: true,
+            }),
+        );
+    }
     config.plugin('define-plugin').use(
         new webpack.DefinePlugin({
             DEFINE_TITLE: JSON.stringify(title),

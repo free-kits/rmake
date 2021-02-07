@@ -22,12 +22,12 @@ export const copyFileDoc = () => {
 };
 
 // 启动开发服务器
-export const devServer = async () => {
+export const devServerDoc = async () => {
     copyFileDoc();
     const config = new Config();
     presetEntry(config);
     presetMDX(config);
-    await presetPlugin(config);
+    await presetPlugin(config, []);
     config.mode('development');
     config.devtool('cheap-module-source-map');
     config.output.publicPath('/');
@@ -46,12 +46,12 @@ export const devServer = async () => {
 };
 
 // 编译Webpack文件
-export const compiler = async () => {
+export const compilerDoc = async () => {
     copyFileDoc();
     const config = new Config();
     presetEntry(config);
     presetMDX(config);
-    await presetPlugin(config);
+    await presetPlugin(config, []);
     config.mode('production');
     config.output.filename('[name].bundle.js');
     config.output.path(join(process.cwd(), 'dist'));
@@ -61,4 +61,33 @@ export const compiler = async () => {
     const compilerWebpck = Webpack(config.toConfig());
     compilerWebpck.run(() => {
     });
+};
+
+// 构建 Electron 应用
+export const devServerElectron = async () => {
+    copySync(
+        join(__dirname, '..', 'template', 'electron'),
+        process.cwd(),
+    );
+    const config = new Config();
+    presetEntry(config);
+    await presetPlugin(config, ['workbox']);
+    config.mode('development');
+    config.devtool('cheap-module-source-map');
+    config.output.publicPath('/');
+    const compiler = Webpack(config.toConfig());
+    const packages = await import(join(process.cwd(), 'package.json'));
+    const devServerConfig = packages['@free-kits/config'].devServer || {};
+    const webpackDevServer = new WebpackDevServer(compiler, {
+        stats: 'errors-only',
+        https: devServerConfig?.https,
+        proxy: devServerConfig?.proxy,
+        historyApiFallback: true,
+    });
+    webpackDevServer.listen(devServerConfig?.port || 3000, () => {});
+};
+
+// 编译 Electron 应用
+export const compilerElectron = () => {
+
 };

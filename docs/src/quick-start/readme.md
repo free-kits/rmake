@@ -12,6 +12,8 @@ title: 简介
 
 > 这个站点就是基于 `@free-kits/rmake` 构建的
 
+
+
 ## 特性
 
 - 📦 开箱即用, 将注意力集中文档编写上
@@ -36,6 +38,13 @@ yarn create @free-kits/rmake
 npx @free-kits/rmake
 ```
 
+|启动命令参数                | 描述
+|-------                    |----------
+|fk-rmake dev-doc           | 启动开发文档信息资料
+|fk-rmake build-doc         | 构建文档资料信息
+|fk-rmake build-electron    | 构建 electron 的跨平台应用
+|rk-rmake build-electron    | 编译 electron 的二进制分发文件, 同时会构建 linux window macos 三个平台的二进制文件
+
 > 按照问答的命令行方式进行预设项目的配置
 
 ## 手动构建项目
@@ -54,7 +63,7 @@ yarn add -D @free-kits/rmake
 
 ### 配置 packages.json 启动项目
 
-修改当前项目中的packages.json文件, 启动命令 `fk-rmake dev` 例如
+修改当前项目中的packages.json文件, 启动命令 `fk-rmake dev-doc` 例如
 
 ```json
 {
@@ -64,7 +73,7 @@ yarn add -D @free-kits/rmake
     "license": "MIT",
     "private": true,
     "scripts": {
-        "start": "fk-rmake dev"
+        "start": "fk-rmake dev-doc"
     },
     "devDependencies": {
         "@free-kits/rmake": "file:../"
