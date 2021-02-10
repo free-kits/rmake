@@ -91,7 +91,7 @@
         "markdownlint": "^0.22.0",
         "markdownlint-cli": "^0.26.0",
         "prettier": "^2.2.1",
-        "ts-jest": "^26.5.0",
+        "ts-jest": "^26.5.1",
         "ts-node": "^9.1.1"
     }
 }
