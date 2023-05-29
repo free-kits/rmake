@@ -47,7 +47,7 @@
         "prism-react-renderer": "^1.1.1",
         "react": "^17.0.1",
         "react-dom": "^17.0.1",
-        "react-icons": "^4.1.0",
+        "react-icons": "^4.9.0",
         "react-live": "^2.2.3",
         "react-responsive": "^8.2.0",
         "react-router-dom": "^5.2.0",
